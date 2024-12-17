@@ -8,39 +8,49 @@
 import SwiftUI
 
 struct Splash: View {
-    // State variable to manage navigation
     @State private var isActive = false
 
     var body: some View {
-        if isActive {
-            // Navigate to the Main App View after the splash screen
-            MainAppView()
-        } else {
-            VStack {
-                // Splash Screen Content
-                Image(systemName: "swift") // Replace with your app logo
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 150, height: 150)
-                    .padding()
-                Text("Welcome to My App")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .foregroundColor(.blue)
+        Group {
+            if isActive {
+                MainAppView() // Main App View
+            } else {
+                VStack(spacing: 20) {
+                    // Logo with detailed design
+                    Image("Splash") // Replace with your asset name in Assets.xcassets
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 220, height: 220) // Adjust size to match design
+              
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color.white) // Background color
+                .ignoresSafeArea()
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.white)
-            .ignoresSafeArea()
-            .onAppear {
-                // Delay for 3 seconds before navigating to the main app
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                    withAnimation {
-                        isActive = true
-                    }
+        }
+        .onAppear {
+            // Delay to simulate a splash screen effect
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                withAnimation {
+                    isActive = true
                 }
             }
         }
     }
 }
 
+// Placeholder for the Main App View
+struct MainAppView: View {
+    var body: some View {
+        Text("Main App View")
+            .font(.title)
+            .fontWeight(.bold)
+    }
+}
 
+// Preview
+struct Splash_Previews: PreviewProvider {
+    static var previews: some View {
+        Splash()
+    }
+}

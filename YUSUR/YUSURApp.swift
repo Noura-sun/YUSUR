@@ -11,7 +11,7 @@ import SwiftData
 struct YUSURApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Splash()
         }
         .modelContainer(for: Dua.self)
     }
