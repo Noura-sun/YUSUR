@@ -8,7 +8,6 @@
 
 /* Begin PBXFileReference section */
 		14F567FD2D09CC0A0043DE84 /* YUSUR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YUSUR.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		AFD508CD2D0DDCD500DF0C5E /* YUSUR.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = YUSUR.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -33,7 +32,6 @@
 		14F567F42D09CC0A0043DE84 = {
 			isa = PBXGroup;
 			children = (
-				AFD508CD2D0DDCD500DF0C5E /* YUSUR.entitlements */,
 				14F567FF2D09CC0A0043DE84 /* YUSUR */,
 				14F567FE2D09CC0A0043DE84 /* Products */,
 			);
@@ -250,7 +248,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"YUSUR/Preview Content\"";
-				DEVELOPMENT_TEAM = 8F9CB8ABM7;
+				DEVELOPMENT_TEAM = 2D6UC785PT;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -272,10 +270,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = h.YUSUR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = 1;
 				XROS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
@@ -289,7 +288,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"YUSUR/Preview Content\"";
-				DEVELOPMENT_TEAM = 8F9CB8ABM7;
+				DEVELOPMENT_TEAM = 2D6UC785PT;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -311,10 +310,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = h.YUSUR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = 1;
 				XROS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
