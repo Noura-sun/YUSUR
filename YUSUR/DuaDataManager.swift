@@ -26,11 +26,12 @@ class DuaDataManager {
                 Dua(arabicText: "للَّهُمَّ أنْتَ رَبِّي لا إلَهَ إلَّا أنْتَ، خَلَقْتَنِي وأنا عَبْدُكَ، وأنا علَى عَهْدِكَ ووَعْدِكَ ما اسْتَطَعْتُ، أعُوذُ بكَ مِن شَرِّ ما صَنَعْتُ، أبُوءُ لكَ بنِعْمَتِكَ عَلَيَّ، وأَبُوءُ لكَ بذَنْبِي فاغْفِرْ لِي، فإنَّه لا يَغْفِرُ الذُّنُوبَ إلَّا أنْتَ.", category: "السعي"),
                 
                 // التحلل من الإحرام
-                Dua(arabicText: "ٱللَّهُمَّ ٱجْعَلْنِي مِنَ ٱلْمَقْبُولِينَ فِي ٱلدُّنْيَا وَٱلْآخِرَةِ، وَٱغْفِرْ لِي وَلِوَالِدَيَّ وَلِجَمِيعِ ٱلْمُسْلِمِينَ.", category: "التحلل من الإحرام"),
-                Dua(arabicText: "ٱللَّهُمَّ ٱرْزُقْنِي زِيَارَةَ بَيْتِكَ ٱلْحَرَامِ مَرَّةً أُخْرَىٰ، وَبَارِكْ لِي فِي حَيَاتِي، وَوَفِّقْنِي لِمَا تُحِبُّ وَتَرْضَىٰ.", category: "التحلل من الإحرام"),
-                Dua(arabicText: "ٱللَّهُمَّ لَكَ ٱلْحَمْدُ عَلَىٰ تَمَامِ ٱلنِّعْمَةِ وَكَمَالِ ٱلْفَضْلِ، ٱللَّهُمَّ ٱجْعَلْنِي مِمَّنْ رَضِيتَ عَنْهُمْ، وَغَفَرْتَ لَهُمْ، وَكَتَبْتَ لَهُمْ أَجْرَ ٱلْعُمْرَةِ كَامِلَةً.", category: "التحلل من الإحرام"),
-                Dua(arabicText: "اللّهُـمَّ لَـكَ الحَـمْـدُ، أنْـتَ جَـمَّلْتَ خَلْقِي، وَزَيَّنْـتَ شَعْرِي، فَاجْعَلْهُ لِي طَهَارَةً وَبَرَكَةً، وَاغْفِرْ لِي ذُنُوبِي، وَتَقَبَّلْ عِبَادَتِي.", category: "التحلل من الإحرام")
-            ]
+                // التحلل من الإحرام
+                Dua(arabicText: "O Allah, make me among those accepted in this world and the Hereafter. Forgive me, my parents, and all Muslims.", category: "Exiting Ihram"),
+                Dua(arabicText: "O Allah, grant me the opportunity to visit Your Sacred House again. Bless my life and guide me to what You love and are pleased with.", category: "Exiting Ihram"),
+                Dua(arabicText: "O Allah, to You belongs all praise for the completion of blessings and the perfection of Your grace. O Allah, make me among those You are pleased with, forgive them, and have written for them the full reward of Umrah.", category: "Exiting Ihram"),
+                Dua(arabicText: "O Allah, to You belongs all praise. You have beautified my creation and adorned my hair. Make it a source of purity and blessing for me. Forgive my sins and accept my worship.", category: "Exiting Ihram")
+                ]
             
             for dua in initialDuas {
                 context.insert(dua) // Add each Dua to the context

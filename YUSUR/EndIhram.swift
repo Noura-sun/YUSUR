@@ -8,14 +8,14 @@ import SwiftUI
 
 struct EndIhram: View {
     @State private var selectedGender: String = "Men" // Default is Men
-    let progressSteps = ["Ihram", "Tawaf", "Sa’i", "Hair Trimming"] // Non-clickable steps
+    let progressSteps = ["Ihram", "Tawaf", "Sa’i", "    Hair Trimming"] // Non-clickable steps
     
     var body: some View {
         NavigationView {
             VStack {
                 // Title
                 HStack {
-                    Image("Kaaba") // Placeholder for Umrah Guide Icon
+                    Image("kaaba") // Placeholder for Umrah Guide Icon
                         .resizable().frame(width: 35, height: 35 )
                         .font(.system(size: 24))
                         .foregroundColor(.black)
@@ -35,16 +35,16 @@ struct EndIhram: View {
                             // Step Block
                             Text(progressSteps[index])
                                 .font(.footnote)
-                                .foregroundColor(index == 0 ? .white : .black)
+                                .foregroundColor(.white)
                                 .frame(width: 64, height: 41)
-                                .background(index == 0 ? Color("ButtonOnboarding") : Color("fontOnboarding"))
+                                .background( Color("ButtonOnboarding"))
                                 .cornerRadius(6)
                             
                             // Connecting Line (only if not the last step)
                             if index < progressSteps.count - 1 {
                                 Rectangle()
                                     .frame(height: 2) // Line thickness
-                                    .foregroundColor(Color.gray.opacity(0.5))
+                                    .foregroundColor(Color("ButtonOnboarding"))
                             }
                         }
                     }
@@ -54,9 +54,9 @@ struct EndIhram: View {
                 
                 
                 ScrollView {
-                    VStack(alignment: .leading, spacing: 12) {
+                    VStack() {
                       
-                     
+
                         // Gender Picker and Rules Box
                         VStack(alignment: .leading, spacing: 8) {
                             // Title and Picker in a Horizontal Stack
@@ -84,16 +84,19 @@ struct EndIhram: View {
                         .background(Color.brown.opacity(0.2)) // Box background color
                         .cornerRadius(8)
                         
+                        
+                        .padding()
                     
                         Text("O Allah, all praise is for You Alone. You have beautified my creation and adorned me with hair. Make this (act of hair trimming) a purification and blessing for me, forgive my sins, and accept my worship.")
-                            .font(.caption)
-                            .multilineTextAlignment(.center)
+                            .font(.custom("Amiri-Regular", size: 18))                 .multilineTextAlignment(.center)
+                            .padding(.top, 4)
                     }
-                    .padding()
+
                 }
                 
                 // Bottom Buttons
                 HStack {
+                    
                     Button(action: {
                         print("Back pressed")
                     }) {
