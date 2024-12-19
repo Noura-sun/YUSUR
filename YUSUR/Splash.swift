@@ -9,11 +9,17 @@ import SwiftUI
 
 struct Splash: View {
     @State private var isActive = false
+    @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding = false
 
     var body: some View {
         Group {
             if isActive {
-            } else {
+                if hasSeenOnboarding {
+                    UmrahGuideView()
+                               } else {
+                                   OnboardingView()
+                               }
+                           } else {
                 VStack(spacing: 20) {
                     // Logo with detailed design
                     Image("Splash") // Replace with your asset name in Assets.xcassets
