@@ -20,7 +20,7 @@ struct OnboardingView: View {
                 // Card Section
                 VStack {
                     // Header Text
-                    Text("ابدأ الآن")
+                    Text("Start Now")
                         .font(.custom("AmiriQuranColored-Regular", size: 24)) // Replace with correct PostScript name
                         .bold()
                    .foregroundColor(Color("fontOnboarding")) // Use custom color
