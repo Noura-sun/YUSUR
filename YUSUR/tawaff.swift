@@ -4,16 +4,18 @@ struct TawafView: View {
     @State private var currentRound: Int = 0 // Current number of rounds
     @State private var isCompleted: Bool = false // To check if the counter has completed
     
+    let progressSteps = ["Ihram", "Tawaf", "Sa'i", "Hair Trimming"] // List of steps with new order
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
-                // Top title
+                // Top title and line
                 VStack {
                     Text("Umrah Guide")
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .padding(.top, 16) // Space with Safe Area
-                        .padding(.bottom, 8)
+                        .padding(.bottom, 8) // Space between title and line
                     
                     // Line below the title
                     Rectangle()
@@ -21,35 +23,43 @@ struct TawafView: View {
                         .frame(height: 2)
                         .padding(.horizontal, 1) // Line extension
                         .padding(.bottom, 16) // Spacing below the line
-                    
-                    // Steps bar with connecting line
-                    ZStack {
-                        // Line between steps
-                        Rectangle()
-                            .fill(Color.gray)
-                            .frame(height: 2)
-                            .padding(.horizontal, 40) // Control line width
-                            .zIndex(0) // Ensure line stays in the background
-                        
-                        // Steps
-                        HStack(spacing: 20) {
-                            StepView(stepName: "Ihram", isActive: true)
-                            StepView(stepName: "Tawaf", isActive: true)
-                            StepView(stepName: "Sa’i", isActive: false)
-                            StepView(stepName: "Hair Trimming", isActive: false)
-                        }
-                        .zIndex(1) // Ensure steps always appear in front
-                    }
-                    .padding(.horizontal)
-                    .frame(height: 60) // Ensures alignment of elements
                 }
-                                
+                
+                // Steps bar with connecting line
+                HStack(spacing: 0) { // Set spacing to 0 for seamless connections
+                    ForEach(progressSteps.indices, id: \.self) { index in
+                        HStack(spacing: 0) { // Adjust spacing within each step and line group
+                            // Step Block
+                            Text(progressSteps[index])
+                                .font(.footnote)
+                                .foregroundColor(index == 0 || index == 1 ? .white : .black) // Set "Ihram" and "Tawaf" to white text
+                                .frame(width: 64, height: 41)
+                                .background(index == 0 || index == 1 ? Color(hex: "#79634B") : (index == 2 || index == 3 ? Color(hex: "#E6D9CA") : Color.gray.opacity(0.3))) // Background color based on index
+                                .cornerRadius(6)
+                            
+                            // Connecting Line (only if not the last step)
+                            if index < progressSteps.count - 1 {
+                                Rectangle()
+                                    .frame(height: 2) // Line thickness
+                                    .foregroundColor(
+                                        index == 0 ? Color(hex: "#79634B") : // Line between "Ihram" and "Tawaf" is brown
+                                        (index == 2 || index == 3 ? Color(hex: "#E6D9CA") : // Line between "Sa'i" and "Hair Trimming" is beige
+                                         Color(hex: "#E6D9CA")) // Default is beige for other steps
+                                    )
+                            }
+                        }
+                    }
+                }
+                .padding(.horizontal) // Add space on the left and right sides
+                .padding(.top) // Adds padding on the top
+                
+                // Tawaf Description
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Tawaf:")
                         .font(.headline)
                     Text("""
                         Begin Tawaf at the Black Stone.\n
-                        Say \"Bismillah, Allahu Akbar\".\n
+                        Say "Bismillah, Allahu Akbar".\n
                         If you can touch the Black Stone, do so. If not, gesture towards it while continuing Tawaf. Continue with prayers and supplications.
                         """)
                         .font(.body)
@@ -62,7 +72,7 @@ struct TawafView: View {
                 VStack {
                     ZStack {
                         Circle()
-                            .fill(Color.brown)
+                            .fill(Color(hex: "#79634B")) // Use the new brown color
                             .frame(width: 150, height: 150) // Enlarges the circle
                             .onTapGesture {
                                 // Increase counter only if less than 7
@@ -89,23 +99,28 @@ struct TawafView: View {
                 
                 // Bottom Buttons
                 HStack {
-                    Button("Back") {
-                        // Action for Back
+                    NavigationLink(destination: EndIhram()) { // Navigate to SaiView on Back
+                        Text("Back")
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 8) // Smaller vertical padding
+                            .padding(.horizontal, 24) // Slightly larger horizontal padding for consistency
+                            .background(Color(hex: "#79634B")) // Change to brown
+                            .foregroundColor(.white) // White text color
+                            .cornerRadius(8)
                     }
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(8)
                     
-                    Button("Continue") {
-                        // Action for Continue
+                    NavigationLink(destination: Sai()) { // Navigate to EndIhramView on Continue
+                        Text("Continue")
+                        
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 8) // Smaller vertical padding
+                            .padding(.horizontal, 24) // Slightly larger horizontal padding for consistency
+                            .background(isCompleted ? Color(hex: "#79634B") : Color.gray.opacity(0.5)) // Use the new brown color
+                            .foregroundColor(.white)
+                            .cornerRadius(8)
+                            .disabled(!isCompleted) // Disable Continue button if counter isn't completed
+                            .navigationBarBackButtonHidden(true)
                     }
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(isCompleted ? Color.brown : Color.gray.opacity(0.5))
-                    .foregroundColor(.white)
-                    .cornerRadius(8)
-                    .disabled(!isCompleted) // Disable Continue button if counter isn't completed
                 }
                 .padding(.horizontal)
                 .padding(.bottom, 16) // Space with Safe Area
@@ -115,21 +130,30 @@ struct TawafView: View {
     }
 }
 
-struct StepView: View {
-    var stepName: String
-    var isActive: Bool
-    
-    var body: some View {
-        ZStack {
-            Rectangle()
-                .fill(stepName == "Tawaf" ? Color.brown : stepName == "Sa’i" ? Color.gray.opacity(0.3) : (isActive ? Color.brown : Color.gray.opacity(0.3)))
-                .frame(width: 80, height: 40) // Uniform size for all steps
-                .cornerRadius(8) // Rounded corners
-            Text(stepName)
-                .font(.footnote)
-                .foregroundColor(.white)
+
+extension Color {
+    init(hex: String) {
+        let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
+        var int: UInt64 = 0
+        Scanner(string: hex).scanHexInt64(&int)
+        let a, r, g, b: UInt64
+        switch hex.count {
+        case 3: // RGB (12-bit)
+            (a, r, g, b) = (255, (int >> 8) * 17, (int >> 4 & 0xF) * 17, (int & 0xF) * 17)
+        case 6: // RGB (24-bit)
+            (a, r, g, b) = (255, int >> 16, int >> 8 & 0xFF, int & 0xFF)
+        case 8: // ARGB (32-bit)
+            (a, r, g, b) = (int >> 24, int >> 16 & 0xFF, int >> 8 & 0xFF, int & 0xFF)
+        default:
+            (a, r, g, b) = (255, 0, 0, 0)
         }
-        .zIndex(isActive ? 1 : 0) // Control ZIndex based on active step
+        self.init(
+            .sRGB,
+            red: Double(r) / 255,
+            green: Double(g) / 255,
+            blue: Double(b) / 255,
+            opacity: Double(a) / 255
+        )
     }
 }
 
