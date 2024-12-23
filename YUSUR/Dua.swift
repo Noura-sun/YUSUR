@@ -9,8 +9,7 @@ import SwiftData
 
 @Model
 class Dua: Identifiable {
-    
-       var arabicText: String // Arabic text of the Dua
+    @Attribute(.unique) var id: UUID = UUID();       var arabicText: String // Arabic text of the Dua
        var category: String // The category the Dua belongs to (e.g., "الإحرام")
        
        init(arabicText: String, category: String) {

@@ -1,22 +1,30 @@
 import SwiftUI
+import _SwiftData_SwiftUI
 
 struct TawafView: View {
     @State private var currentRound: Int = 0 // Current number of rounds
     @State private var isCompleted: Bool = false // To check if the counter has completed
     
     let progressSteps = ["Ihram", "Tawaf", "Sa'i", "Hair Trimming"] // List of steps with new order
-    
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
                 // Top title and line
                 VStack {
-                    Text("Umrah Guide")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .padding(.top, 16) // Space with Safe Area
-                        .padding(.bottom, 8) // Space between title and line
-                    
+                    // Title
+                    HStack {
+                        Image("kaaba") // Placeholder for Umrah Guide Icon
+                            .resizable().frame(width: 35, height: 35 )
+                            .font(.system(size: 24))
+                            .foregroundColor(.black)
+                           
+                        Text("Umrah Guide")
+                            .font(.title)
+                            .fontWeight(.bold)
+                        Spacer()
+                    }
+                    .padding(.horizontal)
+                    .padding(.top, 20)
                     // Line below the title
                     Rectangle()
                         .fill(Color.gray)
@@ -94,7 +102,6 @@ struct TawafView: View {
                     }
                     .padding(.top, 40) // Raises the counter slightly
                 }
-                
                 Spacer() // Push buttons to the bottom
                 
                 // Bottom Buttons
@@ -125,6 +132,7 @@ struct TawafView: View {
                 .padding(.horizontal)
                 .padding(.bottom, 16) // Space with Safe Area
             }
+            .navigationBarBackButtonHidden(true) // إخفاء زر الرجوع الافتراضي
             .edgesIgnoringSafeArea(.bottom) // Ignore Safe Area only at the bottom
         }
     }

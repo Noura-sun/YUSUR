@@ -9,6 +9,11 @@ import SwiftData
 @MainActor
 class DuaDataManager {
     static func seedDuaDataIfNeeded(context: ModelContext) {
+        let existingDuas = try? context.fetch(FetchDescriptor<Dua>())
+               if let existingDuas = existingDuas, !existingDuas.isEmpty {
+                   return // إذا كانت البيانات موجودة، لا تقم بإعادة إضافتها
+               }
+               
             let initialDuas = [
                 // الإحرام
                 Dua(arabicText: "لبيك اللهم لبيك، لبيك لا شريك لك لبيك، إن الحمد والنعمة لك والملك، لا شريك لك.", category: "الإحرام"),
