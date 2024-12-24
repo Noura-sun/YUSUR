@@ -28,7 +28,7 @@ struct OnboardingView: View {
                         .padding(.bottom, 20)
                     
                     // Start Button
-                    NavigationLink(destination: UmrahGuideView().navigationBarBackButtonHidden(true)) {
+                    NavigationLink(destination: IhramView().navigationBarBackButtonHidden(true)) {
                         Text("Start Now")
                             .font(.headline)
                             .foregroundColor(.white)

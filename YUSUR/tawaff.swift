@@ -106,7 +106,7 @@ struct TawafView: View {
                 
                 // Bottom Buttons
                 HStack {
-                    NavigationLink(destination: UmrahGuideView()) { // Navigate to SaiView on Back
+                    NavigationLink(destination: IhramView()) { // Navigate to SaiView on Back
                         Text("Back")
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 8) // Smaller vertical padding

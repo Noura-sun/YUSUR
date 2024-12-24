@@ -7,7 +7,7 @@
 import Foundation
 import SwiftUI
 
-struct UmrahGuideView: View {
+struct ihramView: View {
     @State private var selectedGender: String = "Men" // Default is Men
     let progressSteps = ["Ihram", "Tawaf", "Sa’i", "Hair Trimming"] // Non-clickable steps
     
@@ -147,8 +147,8 @@ struct UmrahGuideView: View {
     }
 }
 
-struct UmrahGuideView_Previews: PreviewProvider {
+struct ihram_Previews: PreviewProvider {
     static var previews: some View {
-        UmrahGuideView()
+       IhramView()
     }
 }

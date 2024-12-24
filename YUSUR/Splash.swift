@@ -15,7 +15,7 @@ struct Splash: View {
         Group {
             if isActive {
                 if hasSeenOnboarding {
-                    UmrahGuideView()
+                    IhramView()
                                } else {
                                    OnboardingView()
                                }
