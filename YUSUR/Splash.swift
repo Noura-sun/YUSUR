@@ -9,12 +9,17 @@ import SwiftUI
 
 struct Splash: View {
     @State private var isActive = false
+    @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding = false
 
     var body: some View {
         Group {
             if isActive {
-                MainAppView() // Main App View
-            } else {
+                if hasSeenOnboarding {
+                    UmrahGuideView()
+                               } else {
+                                   OnboardingView()
+                               }
+                           } else {
                 VStack(spacing: 20) {
                     // Logo with detailed design
                     Image("Splash") // Replace with your asset name in Assets.xcassets
@@ -39,14 +44,6 @@ struct Splash: View {
     }
 }
 
-// Placeholder for the Main App View
-struct MainAppView: View {
-    var body: some View {
-        Text("Main App View")
-            .font(.title)
-            .fontWeight(.bold)
-    }
-}
 
 // Preview
 struct Splash_Previews: PreviewProvider {
