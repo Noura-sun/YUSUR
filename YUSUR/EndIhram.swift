@@ -17,13 +17,13 @@ struct EndIhram: View {
     ]
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack(spacing: 0) { // Use VStack to structure all sections
                 // Title and Progress Bar
                 VStack {
                     // Title
                     HStack {
-                        Image("kaaba") // Placeholder for Umrah Guide Icon
+                        Image("kaba 1") // Placeholder for Umrah Guide Icon
                             .resizable()
                             .frame(width: 35, height: 35)
                         
@@ -120,11 +120,9 @@ struct EndIhram: View {
                     }
                 }
                 
-                // Bottom Button
+                // Bottom Button with Navigation Link
                 HStack {
-                    Button(action: {
-                        print("Back pressed")
-                    }) {
+                    NavigationLink(destination: Sai().navigationBarBackButtonHidden(true)) { // Replace SaiView() with your Sa’i view
                         Text("Back")
                             .frame(width: 100, height: 4)
                             .padding()
@@ -139,6 +137,7 @@ struct EndIhram: View {
         }
     }
 }
+
 
 struct EndIhram_Previews: PreviewProvider {
     static var previews: some View {
