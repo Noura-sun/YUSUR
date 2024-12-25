@@ -122,7 +122,7 @@ struct TawafView: View {
                                     Text(duas[index])
                                         .font(.title3)
                                         .multilineTextAlignment(.center)
-                                        .padding()
+                                        .padding(.bottom,40)
                                     
                                     Spacer()
                                 }
