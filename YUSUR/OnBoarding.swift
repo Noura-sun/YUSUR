@@ -34,7 +34,7 @@ struct OnboardingView: View {
                             .foregroundColor(.white)
                             .padding()
                             .frame(maxWidth: .infinity)
-                            .background(Color("ButtonOnboarding")) // Use your custom color
+                            .background(Color("Color")) // Use your custom color
                             .cornerRadius(20)
                     }
                     .padding(.horizontal, 40)

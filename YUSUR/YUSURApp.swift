@@ -9,10 +9,13 @@ import SwiftUI
 import SwiftData
 @main
 struct YUSURApp: App {
+    
+   // seedDuaDataIfNeeded
     var body: some Scene {
         WindowGroup {
-            TawafView()
+//            TawafView()
+            ContentView()
         }
-        .modelContainer(for: Dua.self)
+        .modelContainer(for: [Dua.self])
     }
 }
