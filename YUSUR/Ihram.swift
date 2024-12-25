@@ -6,7 +6,7 @@ struct IhramView: View {
     let progressSteps = ["Ihram", "Tawaf", "Sa’i", "Hair Trimming"] // Non-clickable steps
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 // Title
                 HStack {
@@ -14,7 +14,7 @@ struct IhramView: View {
                         .resizable().frame(width: 35, height: 35 )
                         .font(.system(size: 24))
                         .foregroundColor(.black)
-                       
+                    
                     Text("Umrah Guide")
                         .font(.title)
                         .fontWeight(.bold)
@@ -22,14 +22,12 @@ struct IhramView: View {
                 }
                 .padding(.horizontal)
                 
-                
-                Divider()// the line
+                Divider() // the line
                     .frame(height: 1) // Thickness of the line
                     .background(Color.gray.opacity(0.5))
                     .padding(.horizontal) // Add padding to match the layout
                 
                 // Progress Bar (Non-clickable)
-               
                 HStack(spacing: 0) { // Set spacing to 0 for seamless connections
                     ForEach(progressSteps.indices, id: \.self) { index in
                         HStack(spacing: 0) { // Adjust spacing within each step and line group
@@ -50,9 +48,8 @@ struct IhramView: View {
                         }
                     }
                 }
-                .padding(.horizontal) // gaive spase in first and last step
+                .padding(.horizontal) // Give space in first and last step
                 .padding(.top)
-                
                 
                 ScrollView {
                     VStack(alignment: .leading, spacing: 12) {
@@ -66,7 +63,6 @@ struct IhramView: View {
                             """)
                         Text("It is sufficient to make the intention in your heart without verbal declaration.")
                         
-                     
                         // Gender Picker and Rules Box
                         VStack(alignment: .leading, spacing: 8) {
                             // Title and Picker in a Horizontal Stack
@@ -79,21 +75,19 @@ struct IhramView: View {
                                     Text("Men").tag("Men")
                                 }
                                 .pickerStyle(SegmentedPickerStyle())
-                                .frame(width: 160, height: 50 )
+                                .frame(width: 160, height: 50)
                             }
-                          
-
+                            
                             // Rules Text
                             Text(selectedGender == "Men" ?
-                                "Wear two white, unstitched garments (Izar and Rida)." :
-                                "Women should wear modest clothing that covers the body but does not include the face and hands.")
+                                 "Wear two white, unstitched garments (Izar and Rida)." :
+                                 "Women should wear modest clothing that covers the body but does not include the face and hands.")
                                 .font(.body)
                                 .padding(.top, 4)
                         }
                         .padding()
                         .background(Color.brown.opacity(0.2)) // Box background color
                         .cornerRadius(8)
-
                         
                         // Arabic Prayer
                         Text("""
@@ -109,24 +103,10 @@ struct IhramView: View {
                     .padding()
                 }
                 
-                // Bottom Buttons
+                // Bottom Navigation Button
                 HStack {
-                    Button(action: {
-                        print("Back pressed")
-                    }) {
-                        Text("Back")
-                            .frame(width: 100, height: 4)
-                            .padding()
-                            .background(Color.gray.opacity(0.2))
-                            .cornerRadius(100)
-                        Spacer()
-                    }
-                    
-                    .foregroundColor(.black)
-                    
-                    Button(action: {
-                        print("Continue pressed")
-                    }) {
+                    Spacer()
+                    NavigationLink(destination: TawafView()) {
                         Text("Continue")
                             .frame(width: 100, height: 4)
                             .padding()
@@ -137,13 +117,29 @@ struct IhramView: View {
                 }
                 .padding()
             }
+            .navigationBarBackButtonHidden(true) // Hide the back button
+        }
+    }
+}
+
+// Example of the next page
+struct Ihram: View {
+    var body: some View {
+        VStack {
+            Text("Tawaf Page")
+                .font(.largeTitle)
+                .padding()
+            
+            Text("This is where the Tawaf content will go.")
+                .font(.body)
+                .padding()
         }
     }
 }
 
 struct Ihram_Previews: PreviewProvider {
     static var previews: some View {
-       IhramView()
+        IhramView()
     }
 }
 
