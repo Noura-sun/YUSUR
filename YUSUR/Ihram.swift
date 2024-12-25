@@ -36,14 +36,14 @@ struct IhramView: View {
                                 .font(.footnote)
                                 .foregroundColor(index == 0 ? .white : .black)
                                 .frame(width: 64, height: 41)
-                                .background(index == 0 ? Color.brown : Color.gray.opacity(0.3))
+                                .background(index == 0 ? Color("Color 1") : Color("Color 2"))
                                 .cornerRadius(6)
                             
                             // Connecting Line (only if not the last step)
                             if index < progressSteps.count - 1 {
                                 Rectangle()
                                     .frame(height: 2) // Line thickness
-                                    .foregroundColor(Color.gray.opacity(0.5))
+                                    .foregroundColor(Color("Color 2"))
                             }
                         }
                     }
@@ -110,7 +110,7 @@ struct IhramView: View {
                         Text("Continue")
                             .frame(width: 100, height: 4)
                             .padding()
-                            .background(Color.brown)
+                            .background(Color("Color 1"))
                             .foregroundColor(.white)
                             .cornerRadius(100)
                     }

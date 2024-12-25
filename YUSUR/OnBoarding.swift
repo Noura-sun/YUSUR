@@ -21,7 +21,7 @@ struct OnboardingView: View {
                     
                     // Title Section
                     Text("The Ultimate Umrah Guide at Your Fingertips")
-                        .font(.custom("Amiri-Regular", size: 24)) // Use your preferred font
+                        .font(.custom("Amiri-Regular", size: 20)) // Use your preferred font
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 40)
