@@ -20,7 +20,7 @@ struct TawafView: View {
                 VStack {
                     // Title
                     HStack {
-                        Image("kaba 1") // Placeholder for Umrah Guide Icon
+                        Image("kaaba") // Placeholder for Umrah Guide Icon
                             .resizable().frame(width: 35, height: 35 )
                             .font(.system(size: 24))
                             .foregroundColor(.black)
