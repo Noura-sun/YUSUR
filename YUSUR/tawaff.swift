@@ -170,7 +170,7 @@ struct TawafView: View {
                         }
                         Spacer()
                         
-                        NavigationLink(destination: Sai()) { // Navigate to Sai on Continue
+                        NavigationLink(destination: SaiView()) { // Navigate to Sai on Continue
                             Text("Continue")
                                 .frame(width: 100, height: 4)
                                 .padding()
