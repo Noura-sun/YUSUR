@@ -78,7 +78,7 @@ struct Sai: View {
                     }) {
                         ZStack {
                             Circle()
-                                .fill(Color.buttonOnboarding)
+                                .fill(Color.mainbrowan)
                                 .frame(width: 170, height: 170)
 
                             Text(counter == 0 ? "+" : "\(counter)") // "+" initially, then numbers
@@ -161,4 +161,3 @@ struct Sai_Preview: PreviewProvider {
         Sai()
     }
 }
-
