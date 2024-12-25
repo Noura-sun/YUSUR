@@ -18,12 +18,12 @@ struct EndIhram: View {
     
     var body: some View {
         NavigationStack {
-            VStack(spacing: 0) { // Use VStack to structure all sections
+            VStack { // Use VStack to structure all sections
                 // Title and Progress Bar
                 VStack {
                     // Title
                     HStack {
-                        Image("kaba 1") // Placeholder for Umrah Guide Icon
+                        Image("kaaba") // Placeholder for Umrah Guide Icon
                             .resizable()
                             .frame(width: 35, height: 35)
                         
@@ -47,29 +47,30 @@ struct EndIhram: View {
                                     .font(.footnote)
                                     .foregroundColor(.white)
                                     .frame(width: 64, height: 41)
-                                    .background(Color("Color"))
+                                    .background(Color("Color 1"))
                                     .cornerRadius(6)
                                 
                                 if index < progressSteps.count - 1 {
                                     Rectangle()
                                         .frame(height: 2)
-                                        .foregroundColor(Color("Color"))
+                                        .foregroundColor(Color("Color 1"))
                                 }
                             }
                         }
                     }
                     .padding(.horizontal)
-                    .padding(.top)
+                    .padding(.top, 10)
                 }
                 
                 // Scrollable Content
                 ScrollView {
-                    VStack(spacing: 20) {
+                    VStack(spacing: 100) {
                         // Gender Picker and Rules Box
-                        VStack(alignment: .leading, spacing: 8) {
+                        VStack(alignment: .leading, spacing: 20) {
                             HStack {
                                 Text("**Rules of Hair Trimming:**")
-                                    .font(.headline)
+                                    .font(.custom("Amiri-Bold", size: 18))
+                                    .fontWeight(.bold)
                                 Spacer()
                                 Picker(selection: $selectedGender, label: Text("")) {
                                     Text("Women").tag("Women")
@@ -82,10 +83,10 @@ struct EndIhram: View {
                                  "Trim a small portion of hair (equal to the length of a fingertip)." :
                                  "Women should wear modest clothing that covers the body but does not include the face and hands.")
                                 .font(.body)
-                                .padding(.top, 4)
+                                .padding(.top, 10)
                         }
                         .padding()
-                        .background(Color("Color").opacity(0.2))
+                        .background(Color("Color 1").opacity(0.2))
                         .cornerRadius(8)
                         .padding()
                         
@@ -107,7 +108,7 @@ struct EndIhram: View {
                             HStack(spacing: 6) {
                                 ForEach(0..<duas.count, id: \.self) { index in
                                     Circle()
-                                        .fill(selectedIndex == index ? Color("Color") : Color.secondary.opacity(0.4))
+                                        .fill(selectedIndex == index ? Color("Color 1") : Color.secondary.opacity(0.4))
                                         .frame(width: 8, height: 8)
                                         .onTapGesture {
                                             withAnimation {
@@ -122,11 +123,11 @@ struct EndIhram: View {
                 
                 // Bottom Button with Navigation Link
                 HStack {
-                    NavigationLink(destination: Sai().navigationBarBackButtonHidden(true)) { // Replace SaiView() with your Sa’i view
+                    NavigationLink(destination:SaiView().navigationBarBackButtonHidden(true)) { // Replace SaiView() with your Sa’i view
                         Text("Back")
                             .frame(width: 100, height: 4)
                             .padding()
-                            .background(Color("Color"))
+                            .background(Color("Color 1"))
                             .cornerRadius(25)
                             .foregroundColor(.white)
                     }
