@@ -47,21 +47,26 @@ struct SaiView: View {
                         .padding(.bottom, 16)
                 }
                 
-                // Steps bar with connecting line
-                HStack(spacing: 0) {
+                HStack(spacing: 0) { // Set spacing to 0 for seamless connections
                     ForEach(progressSteps.indices, id: \.self) { index in
-                        HStack(spacing: 0) {
+                        HStack(spacing: 0) { // Adjust spacing within each step and line group
+                            // Step Block
                             Text(progressSteps[index])
                                 .font(.custom("Amiri-Bold", size: 12))
-                                .foregroundColor(index == 2 ? .white : .black) // Highlight "Sa'i"
+                                .foregroundColor(index == 0 || index == 1 || index == 2 ? .white : .black) // Set "Ihram" and "Tawaf" to white text
                                 .frame(width: 64, height: 41)
-                                .background(index == 2 ? Color(hex: "#79634B") : Color.gray.opacity(0.3))
+                                .background(index == 0 || index == 1 || index == 2 ? Color(hex: "#79634B") : (index == 2 || index == 3 ? Color(hex: "#E6D9CA") : Color.gray.opacity(0.3))) // Background color based on index
                                 .cornerRadius(6)
                             
+                            // Connecting Line (only if not the last step)
                             if index < progressSteps.count - 1 {
                                 Rectangle()
-                                    .frame(height: 2)
-                                    .foregroundColor(Color.gray.opacity(0.5))
+                                    .frame(height: 2) // Line thickness
+                                    .foregroundColor(
+                                        index == 0 ? Color(hex: "#79634B") : // Line between "Ihram" and "Tawaf" is brown
+                                        (index == 2 || index == 3 ? Color(hex: "#E6D9CA") : // Line between "Sa'i" and "Hair Trimming" is beige
+                                         Color(hex: "#E6D9CA")) // Default is beige for other steps
+                                    )
                             }
                         }
                     }
