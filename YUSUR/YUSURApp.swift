@@ -13,8 +13,8 @@ struct YUSURApp: App {
    // seedDuaDataIfNeeded
     var body: some Scene {
         WindowGroup {
-//            TawafView()
-            ContentView()
+            Splash()
+         
         }
         .modelContainer(for: [Dua.self])
     }
