@@ -155,8 +155,7 @@ struct SaiView: View {
                     .padding()
                     
                     Spacer()
-                }
-                
+                   
                 // Bottom Buttons
                 HStack {
                     NavigationLink(destination: TawafView()) { // Navigate to TawafView on Back
@@ -204,7 +203,7 @@ struct tawaf: View {
             .font(.largeTitle)
     }
 }
-
+}
 extension Color {
     init(customHex: String) { // Change the name to avoid conflict
         var hexSanitized = customHex.trimmingCharacters(in: .whitespacesAndNewlines)
