@@ -11,21 +11,29 @@ struct OnboardingView: View {
         NavigationStack {
             ZStack {
                 // Background Image
-                Image("OnBoarding")
+                Image("Onboarding 6")
                     .resizable()
                     .scaledToFill()
-                    .ignoresSafeArea() // Ensure it covers the entire screen
+                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height) // Fixed to screen size
+                    .ignoresSafeArea()
                 
                 VStack {
-                    Spacer() // Push content to the bottom
+                    Spacer() // Push the content down slightly
                     
-                    // Title Section
-                    Text("The Ultimate Umrah Guide at Your Fingertips")
-                        .font(.custom("Amiri-Regular", size: 20)) // Use your preferred font
-                        .foregroundColor(.white)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, 40)
-                        .padding(.bottom, 20)
+                    // Logo and Text Section
+                    VStack(spacing: 16) {
+                        // Logo
+                        Image("Aldenaire") // Replace with your actual logo name
+                            .resizable()
+                            .scaledToFit()
+                            .padding(.leading, -70) // Move logo to the left and
+
+                            .frame(width: 600, height: 600) // Adjust logo size to match the screenshot
+                        
+                        
+                    }
+                    
+                    Spacer() // Push the button to the bottom
                     
                     // Start Button
                     NavigationLink(destination: IhramView().navigationBarBackButtonHidden(true)) {
@@ -33,18 +41,18 @@ struct OnboardingView: View {
                             .font(.headline)
                             .foregroundColor(.white)
                             .padding()
-                            .frame(maxWidth: .infinity)
+                            .frame(width: UIScreen.main.bounds.width * 0.8, height: 50) // Fixed button size
                             .background(Color("Color 1")) // Use your custom color
-                            .cornerRadius(20)
+                            .cornerRadius(25)
+                            .shadow(radius: 5) // Optional shadow for the button
                     }
-                    .padding(.horizontal, 40)
-                    .padding(.bottom, 50)
+                    .padding(.bottom, 100) // Add space from the bottom edge
                 }
-                .padding(.bottom, 100) // Space from the bottom edge
             }
         }
     }
 }
+
 struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
         OnboardingView()

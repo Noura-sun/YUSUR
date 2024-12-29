@@ -8,26 +8,8 @@ struct IhramView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                // Title
-                HStack {
-                    Image("Kaaba") // Placeholder for Umrah Guide Icon
-                        .resizable().frame(width: 35, height: 35 )
-                        .font(.system(size: 24))
-                        .foregroundColor(.black)
-                    
-                    Text("Umrah Guide")
-                        .font(.title)
-                        .fontWeight(.bold)
-                    Spacer()
-                }
-                .padding(.horizontal)
-                
-                Divider() // the line
-                    .frame(height: 1) // Thickness of the line
-                    .background(Color.gray.opacity(0.5))
-                    .padding(.horizontal) // Add padding to match the layout
-                
-                // Progress Bar (Non-clickable)
+                Spacer()
+// Progress Bar (Non-clickable)
                 HStack(spacing: 0) { // Set spacing to 0 for seamless connections
                     ForEach(progressSteps.indices, id: \.self) { index in
                         HStack(spacing: 0) { // Adjust spacing within each step and line group
