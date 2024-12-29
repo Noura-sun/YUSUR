@@ -35,7 +35,7 @@ struct Splash: View {
         }
         .onAppear {
             // Delay to simulate a splash screen effect
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 withAnimation {
                     isActive = true
                 }
