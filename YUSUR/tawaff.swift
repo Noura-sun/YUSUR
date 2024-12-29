@@ -155,7 +155,7 @@ struct TawafView: View {
                     Spacer() // Push buttons to the bottom
                     
                     Spacer() // Push buttons to the bottom
-                }
+                    
                     // Bottom Buttons
                     HStack {
                         NavigationLink(destination: IhramView()) { // Navigate to SaiView on Back
@@ -190,7 +190,7 @@ struct TawafView: View {
             }
         }
     }
-
+}
 extension Color {
     init(hex: String) {
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
