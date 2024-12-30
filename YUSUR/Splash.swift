@@ -15,18 +15,17 @@ struct Splash: View {
         Group {
             if isActive {
                 if hasSeenOnboarding {
-                    IhramView()
-                               } else {
-                                   OnboardingView()
-                               }
-                           } else {
+                    IhramView() // Existing view to display after splash
+                } else {
+                    OnboardingView() // Onboarding screen
+                }
+            } else {
                 VStack(spacing: 20) {
                     // Logo with detailed design
                     Image("Splash") // Replace with your asset name in Assets.xcassets
                         .resizable()
                         .scaledToFit()
                         .frame(width: 220, height: 220) // Adjust size to match design
-              
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color.white) // Background color
@@ -44,10 +43,10 @@ struct Splash: View {
     }
 }
 
-
-// Preview
+// Preview for the Splash view
 struct Splash_Previews: PreviewProvider {
     static var previews: some View {
+        // Assuming you want to preview the splash screen without a context
         Splash()
     }
 }
