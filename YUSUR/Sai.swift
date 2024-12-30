@@ -59,6 +59,7 @@ struct SaiView: View {
                         Walk back and forth between Safa and Marwa seven times while engaging in prayers and supplications.
                         Remember to ask Allah for forgiveness and blessings during each lap.
                         """)
+                        Spacer().frame(height: 30)
                         .font(.body)
                         .lineSpacing(2)
                     }
@@ -68,30 +69,72 @@ struct SaiView: View {
                     // Lap Counter
                     VStack {
                         ZStack {
-                            Circle()
-                                .fill(Color(hex: "#79634B"))
-                                .frame(width: 150, height: 150)
-                                .onTapGesture {
-                                    if currentRound < 7 {
-                                        currentRound += 1
-                                    }
-                                    if currentRound == 7 {
-                                        isCompleted = true
-                                    }
-                                }
-                            Text(currentRound == 0 ? "+" : "\(currentRound)")
-                                .font(.system(size: 48))
-                                .fontWeight(.bold)
-                                .foregroundColor(.white)
+                            GeometryReader { geometry in
+                                // Circle background
+                                Circle()
+                                    .fill(
+                                        currentRound == 0 ? Color("Color  10") :
+                                        currentRound == 1 ? Color("Color 3") :
+                                        currentRound == 2 ? Color("Color 4") :
+                                        currentRound == 3 ? Color("Color 5") :
+                                        currentRound == 4 ? Color("Color 6") :
+                                        currentRound == 5 ? Color("Color 7") :
+                                        currentRound == 6 ? Color("Color 8") :
+                                        currentRound == 7 ? Color("Color 9") :
+                                        Color.clear
+                                    )
+                                    .frame(width: geometry.size.width, height: geometry.size.height)
+                                
+                                // Number in the center
+                                Text("\(currentRound)")
+                                    .font(.system(size: 48))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.white)
+                                    .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
+                            }
+                            .frame(width: 150, height: 150) // Fixed size for the circle
                         }
-                        .padding(.top, 40)
                         
-                        Text(currentRound == 0 ? "Start round" : (currentRound == 7 ? "Sa'i Completed!" : ""))
+                        // Display message based on the current round count
+                        Text(currentRound == 0 ? "Start Sai " : (currentRound == 7 ? "Sai Completed!" : ""))
                             .font(.custom("Amiri-Regular", size: 18))
                             .foregroundColor(.black)
-                            .padding(.top, 0.1)
+                            .padding(.top, 10)
                     }
-                    
+
+                    // Buttons inside rectangle container
+                    HStack(spacing: 30) { // Decreased spacing between buttons
+                        Button(action: {
+                            if currentRound > 0 {
+                                currentRound -= 1
+                                isCompleted = false
+                            }
+                        }) {
+                            Text("-")
+                                .font(.system(size: 36))
+                                .foregroundColor(Color("Color 3"))
+                                .frame(width: 20, height: 20)
+                                .cornerRadius(25) // Make it a round button
+                        }
+                        
+                        Button(action: {
+                            if currentRound < 7 {
+                                currentRound += 1
+                                if currentRound == 7 {
+                                    isCompleted = true
+                                }
+                            }
+                        }) {
+                            Text("+")
+                                .font(.system(size: 36))
+                                .foregroundColor(Color("Color 1"))
+                                .frame(width: 20, height: 20)
+                                .cornerRadius(25) // Make it a round button
+                        }
+                    }
+                    .padding(10)
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(20)
                     VStack {
                         TabView(selection: $selectedIndex) {
                             ForEach(0..<duas.count, id: \.self) { index in
