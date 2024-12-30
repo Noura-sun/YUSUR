@@ -4,7 +4,7 @@ import _SwiftData_SwiftUI
 struct TawafView: View {
     @State private var currentRound: Int = 0 // Current number of rounds
     @State private var isCompleted: Bool = false // To check if the counter has completed
-    @State private var selectedIndex = 0 // Track selected dua in the TabView
+    @State private var selectedIndex: Int = 0 // Added for tracking the current dua index
     
     let progressSteps = ["Ihram", "Tawaf", "Sa'i", "Hair Trimming"] // List of steps with new order
     let duas = [
@@ -13,6 +13,7 @@ struct TawafView: View {
         "O Allah, You are Pardoning and Generous, and You love to pardon, so pardon me",
         "O Allah, I ask You for pardon and well-being in this world and the Hereafter"
     ]
+    
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
@@ -54,6 +55,7 @@ struct TawafView: View {
                         Say "Bismillah, Allahu Akbar".\n
                         If you can touch the Black Stone, do so. If not, gesture towards it while continuing Tawaf. Continue with prayers and supplications.
                         """)
+                        Spacer().frame(height: 30)
                         .font(.body)
                         .lineSpacing(2)
                     }
@@ -61,34 +63,77 @@ struct TawafView: View {
                     .padding(.top, 18) // Raises the text a bit above
                     
                     // Round Counter
+                    // Round Counter with Centered Number
                     VStack {
                         ZStack {
-                            Circle()
-                                .fill(Color(hex: "#79634B")) // Use the new brown color
-                                .frame(width: 150, height: 150) // Enlarges the circle
-                                .onTapGesture {
-                                    // Increase counter only if less than 7
-                                    if currentRound < 7 {
-                                        currentRound += 1
-                                    }
-                                    if currentRound == 7 {
-                                        isCompleted = true
-                                    }
-                                }
-                            // Display number or "+" if counter is at zero
-                            Text(currentRound == 0 ? "+" : "\(currentRound)")
-                                .font(.system(size: 48))
-                                .fontWeight(.bold)
-                                .foregroundColor(.white)
+                            GeometryReader { geometry in
+                                // Circle background
+                                Circle()
+                                    .fill(
+                                        currentRound == 0 ? Color.gray :
+                                        currentRound == 1 ? Color("Color 3") :
+                                        currentRound == 2 ? Color("Color 4") :
+                                        currentRound == 3 ? Color("Color 5") :
+                                        currentRound == 4 ? Color("Color 6") :
+                                        currentRound == 5 ? Color("Color 7") :
+                                        currentRound == 6 ? Color("Color 8") :
+                                        currentRound == 7 ? Color("Color 9") :
+                                        Color.clear
+                                    )
+                                    .frame(width: geometry.size.width, height: geometry.size.height)
+                                
+                                // Number in the center
+                                Text("\(currentRound)")
+                                    .font(.system(size: 48))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.white)
+                                    .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
+                            }
+                            .frame(width: 150, height: 150) // Fixed size for the circle
                         }
-                        .padding(.top, 40) // Raises the counter slightly
                         
                         // Display message based on the current round count
                         Text(currentRound == 0 ? "Start Round" : (currentRound == 7 ? "Tawaf Completed!" : ""))
                             .font(.custom("Amiri-Regular", size: 18))
                             .foregroundColor(.black)
-                            .padding(.top, 0.1)
+                            .padding(.top, 10)
                     }
+
+                    // Buttons inside rectangle container
+                    HStack(spacing: 30) { // Decreased spacing between buttons
+                        Button(action: {
+                            if currentRound > 0 {
+                                currentRound -= 1
+                                isCompleted = false
+                            }
+                        }) {
+                            Text("-")
+                                .font(.system(size: 36))
+                                .foregroundColor(Color("Color 3"))
+                                .frame(width: 20, height: 20)
+                                .cornerRadius(25) // Make it a round button
+                        }
+                        
+                        Button(action: {
+                            if currentRound < 7 {
+                                currentRound += 1
+                                if currentRound == 7 {
+                                    isCompleted = true
+                                }
+                            }
+                        }) {
+                            Text("+")
+                                .font(.system(size: 36))
+                                .foregroundColor(Color("Color 1"))
+                                .frame(width: 20, height: 20)
+                                .cornerRadius(25) // Make it a round button
+                        }
+                    }
+                    .padding(10)
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(20)
+
+                   
                     VStack {
                         TabView(selection: $selectedIndex) {
                             ForEach(0..<duas.count, id: \.self) { index in
@@ -116,7 +161,7 @@ struct TawafView: View {
                             ForEach(0..<duas.count, id: \.self) { index in
                                 Circle()
                                     .fill(selectedIndex == index ? Color.gray : Color.secondary.opacity(0.4))
-                                    .frame(width: 10, height: 10)
+                                    .frame(width: 6, height: 10)
                                     .onTapGesture {
                                         withAnimation {
                                             selectedIndex = index
@@ -127,8 +172,6 @@ struct TawafView: View {
                         .padding(.bottom)
                     }
                     .padding()
-                    
-                    Spacer() // Push buttons to the bottom
                     
                     Spacer() // Push buttons to the bottom
                     
@@ -167,6 +210,7 @@ struct TawafView: View {
         }
     }
 }
+
 extension Color {
     init(hex: String) {
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
