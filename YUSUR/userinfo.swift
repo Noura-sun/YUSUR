@@ -5,7 +5,7 @@
 //  Created by Rimas Alshahrani on 29/06/1446 AH.
 import SwiftUI
 
-struct WelcomeView: View {
+struct userinfoView: View {
     @State private var name: String = ""
     @State private var gender: String = ""
     @State private var genders = ["Male", "Female"]
@@ -99,7 +99,7 @@ struct BlurView: UIViewRepresentable {
 
 struct WelcomeView_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeView()
+        userinfoView()
     }
 }
 

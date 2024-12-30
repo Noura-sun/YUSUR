@@ -40,7 +40,7 @@ struct OnboardingView: View {
                     Spacer() // Push the button to the bottom
                     
                     // Start Button
-                    NavigationLink(destination: WelcomeView().navigationBarBackButtonHidden(true)) {
+                    NavigationLink(destination: userinfoView().navigationBarBackButtonHidden(true)) {
                         Text("Start Now")
                             .font(.headline)
                             .foregroundColor(.white)
