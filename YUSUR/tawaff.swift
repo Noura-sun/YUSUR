@@ -26,7 +26,7 @@ struct TawafView: View {
                                 .font(.custom("Amiri-Bold", size: 12))
                                 .foregroundColor(index == 0 || index == 1 ? .white : .black) // Set "Ihram" and "Tawaf" to white text
                                 .frame(width: 64, height: 41)
-                                .background(index == 0 || index == 1 ? Color(hex: "#79634B") : (index == 2 || index == 3 ? Color(hex: "#E6D9CA") : Color.gray.opacity(0.3))) // Background color based on index
+                                .background(index == 0 || index == 1 ? Color(Color("Color 1")) : (index == 2 || index == 3 ? Color(Color("Color 2")): Color.gray.opacity(0.3))) // Background color based on index
                                 .cornerRadius(6)
                             
                             // Connecting Line (only if not the last step)
@@ -34,10 +34,10 @@ struct TawafView: View {
                                 Rectangle()
                                     .frame(height: 2) // Line thickness
                                     .foregroundColor(
-                                        index == 0 ? Color(hex: "#79634B") : // Line between "Ihram" and "Tawaf" is brown
-                                        (index == 2 || index == 3 ? Color(hex: "#E6D9CA") : // Line between "Sa'i" and "Hair Trimming" is beige
-                                         Color(hex: "#E6D9CA")) // Default is beige for other steps
-                                    )
+                                        index == 0 ? Color(Color("Color 1")) : // Line between "Ihram" and "Tawaf" is brown
+                                        (index == 2 || index == 3 ? Color(Color("Color 2")) : // Line between "Sa'i" and "Hair Trimming" is beige
+                                         Color(Color("Color 2")) // Default is beige for other steps
+                                    ))
                             }
                         }
                     }
@@ -70,7 +70,7 @@ struct TawafView: View {
                                 // Circle background
                                 Circle()
                                     .fill(
-                                        currentRound == 0 ? Color.gray :
+                                        currentRound == 0 ? Color("Color  10") :
                                         currentRound == 1 ? Color("Color 3") :
                                         currentRound == 2 ? Color("Color 4") :
                                         currentRound == 3 ? Color("Color 5") :
@@ -93,7 +93,7 @@ struct TawafView: View {
                         }
                         
                         // Display message based on the current round count
-                        Text(currentRound == 0 ? "Start Round" : (currentRound == 7 ? "Tawaf Completed!" : ""))
+                        Text(currentRound == 0 ? "Start Tawaf" : (currentRound == 7 ? "Tawaf Completed!" : ""))
                             .font(.custom("Amiri-Regular", size: 18))
                             .foregroundColor(.black)
                             .padding(.top, 10)
@@ -181,7 +181,7 @@ struct TawafView: View {
                             Text("Back")
                                 .frame(width: 100, height: 4)
                                 .padding()
-                                .background(Color(hex: "#79634B")) // Change to brown
+                                .background(Color("Color 1"))
                                 .foregroundColor(.white) // White text color
                                 .cornerRadius(100)
                                 .font(.custom("Amiri-Bold", size: 18))
@@ -193,7 +193,7 @@ struct TawafView: View {
                             Text("Continue")
                                 .frame(width: 100, height: 4)
                                 .padding()
-                                .background(isCompleted ? Color(hex: "#79634B") : Color.gray.opacity(0.5)) // Use the new brown color
+                                .background(isCompleted ? (Color("Color 1")) : Color.gray.opacity(0.5)) // Use the new brown color
                                 .foregroundColor(.white)
                                 .cornerRadius(100)
                                 .font(.custom("Amiri-Bold", size: 18))
