@@ -9,7 +9,7 @@ struct IhramView: View {
         NavigationStack {
             VStack {
                 Spacer()
-// Progress Bar (Non-clickable)
+                // Progress Bar (Non-clickable)
                 HStack(spacing: 0) { // Set spacing to 0 for seamless connections
                     ForEach(progressSteps.indices, id: \.self) { index in
                         HStack(spacing: 0) { // Adjust spacing within each step and line group
@@ -63,9 +63,9 @@ struct IhramView: View {
                             // Rules Text
                             Text(selectedGender == "Men" ?
                                  "Wear two white, unstitched garments (Izar and Rida)." :
-                                 "Women should wear modest clothing that covers the body but does not include the face and hands.")
-                                .font(.body)
-                                .padding(.top, 4)
+                                    "Women should wear modest clothing that covers the body but does not include the face and hands.")
+                            .font(.body)
+                            .padding(.top, 4)
                         }
                         .padding()
                         .background(Color.brown.opacity(0.2)) // Box background color
@@ -75,35 +75,36 @@ struct IhramView: View {
                         Text("""
                         اللَّهُمَّ إِنِّي أَسْأَلُكَ الجَنَّةَ، وَمَا قَرَّبَ إِلَيْهَا مِنْ قَوْلٍ وَعَمَلٍ، وَأَعُوذُ بِكَ مِنَ النَّارِ، وَمَا قَرَّبَ إِلَيْهَا مِنْ قَوْلٍ وَعَمَلٍ.
                         """)
-                            .font(.body)
-                            .multilineTextAlignment(.center)
+                        .font(.body)
+                        .multilineTextAlignment(.center)
                         
                         Text("Oh God, I ask you for Paradise, and whatever words and deeds bring me closer to it, and I seek refuge in You from Hell, and whatever words and deeds bring me closer to it.")
                             .font(.caption)
                             .multilineTextAlignment(.center)
                     }
                     .padding()
-                }
-                
-                // Bottom Navigation Button
-                HStack {
-                    Spacer()
-                    NavigationLink(destination: TawafView()) {
-                        Text("Continue")
-                            .frame(width: 100, height: 4)
-                            .padding()
-                            .background(Color("Color 1"))
-                            .foregroundColor(.white)
-                            .cornerRadius(100)
+                    
+                    
+                    // Bottom Navigation Button
+                    HStack {
+                        Spacer()
+                        NavigationLink(destination: TawafView()) {
+                            Text("Continue")
+                                .frame(width: 100, height: 4)
+                                .padding()
+                                .background(Color("Color 1"))
+                                .foregroundColor(.white)
+                                .cornerRadius(100)
+                        }
                     }
+                    .padding(.top,120)
+                    .padding()
                 }
-                .padding()
+                .navigationBarBackButtonHidden(true) // Hide the back button
             }
-            .navigationBarBackButtonHidden(true) // Hide the back button
         }
     }
 }
-
 // Example of the next page
 struct Ihram: View {
     var body: some View {

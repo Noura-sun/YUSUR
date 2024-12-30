@@ -23,30 +23,6 @@ struct SaiView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-                // Top title and line
-                VStack {
-                    // Title
-                    HStack {
-                        Image("kaaba") // Placeholder for Umrah Guide Icon
-                            .resizable().frame(width: 35, height: 35)
-                            .font(.system(size: 24))
-                            .foregroundColor(.black)
-                        
-                        Text("Umrah Guide")
-                            .font(.custom("Amiri-Bold", size: 32))
-                            .fontWeight(.bold)
-                        Spacer()
-                    }
-                    .padding(.horizontal)
-                    .padding(.top, 20)
-                    
-                    Rectangle()
-                        .fill(Color.gray)
-                        .frame(height: 2)
-                        .padding(.horizontal, 1)
-                        .padding(.bottom, 16)
-                }
-                
                 HStack(spacing: 0) { // Set spacing to 0 for seamless connections
                     ForEach(progressSteps.indices, id: \.self) { index in
                         HStack(spacing: 0) { // Adjust spacing within each step and line group

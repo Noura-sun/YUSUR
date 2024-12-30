@@ -20,47 +20,29 @@ struct EndIhram: View {
         NavigationStack {
             VStack { // Use VStack to structure all sections
                 // Title and Progress Bar
-                VStack {
-                    // Title
-                    HStack {
-                        Image("kaaba") // Placeholder for Umrah Guide Icon
-                            .resizable()
-                            .frame(width: 35, height: 35)
-                        
-                        Text("Umrah Guide")
-                            .font(.title)
-                            .fontWeight(.bold)
-                        Spacer()
-                    }
-                    .padding(.horizontal)
-                    
-                    Divider() // The line
-                        .frame(height: 1) // Thickness of the line
-                        .background(Color.gray.opacity(0.5))
-                        .padding(.horizontal) // Add padding to match the layout
-                    
-                    // Progress Bar
-                    HStack(spacing: 0) {
-                        ForEach(progressSteps.indices, id: \.self) { index in
-                            HStack(spacing: 0) {
-                                Text(progressSteps[index])
-                                    .font(.footnote)
-                                    .foregroundColor(.white)
-                                    .frame(width: 64, height: 41)
-                                    .background(Color("Color 1"))
-                                    .cornerRadius(6)
-                                
-                                if index < progressSteps.count - 1 {
-                                    Rectangle()
-                                        .frame(height: 2)
-                                        .foregroundColor(Color("Color 1"))
-                                }
+                
+                // Progress Bar
+                HStack(spacing: 0) {
+                    ForEach(progressSteps.indices, id: \.self) { index in
+                        HStack(spacing: 0) {
+                            Text(progressSteps[index])
+                                .font(.footnote)
+                                .foregroundColor(.white)
+                                .frame(width: 64, height: 41)
+                                .background(Color("Color 1"))
+                                .cornerRadius(6)
+                            
+                            if index < progressSteps.count - 1 {
+                                Rectangle()
+                                    .frame(height: 2)
+                                    .foregroundColor(Color("Color 1"))
                             }
                         }
                     }
-                    .padding(.horizontal)
-                    .padding(.top, 10)
                 }
+                .padding(.horizontal)
+                .padding(.top, 10)
+                
                 
                 // Scrollable Content
                 ScrollView {
@@ -81,9 +63,9 @@ struct EndIhram: View {
                             }
                             Text(selectedGender == "Men" ?
                                  "Trim a small portion of hair (equal to the length of a fingertip)." :
-                                 "Women should wear modest clothing that covers the body but does not include the face and hands.")
-                                .font(.body)
-                                .padding(.top, 10)
+                                    "Women should wear modest clothing that covers the body but does not include the face and hands.")
+                            .font(.body)
+                            .padding(.top, 10)
                         }
                         .padding()
                         .background(Color("Color 1").opacity(0.2))
@@ -119,26 +101,26 @@ struct EndIhram: View {
                             }
                         }
                     }
-                }
-                
-                // Bottom Button with Navigation Link
-                HStack {
-                    NavigationLink(destination:SaiView().navigationBarBackButtonHidden(true)) { // Replace SaiView() with your Sa’i view
-                        Text("Back")
-                            .frame(width: 100, height: 4)
-                            .padding()
-                            .background(Color("Color 1"))
-                            .cornerRadius(25)
-                            .foregroundColor(.white)
+                    
+                    // Bottom Button with Navigation Link
+                    HStack {
+                        NavigationLink(destination:SaiView().navigationBarBackButtonHidden(true)) { // Replace SaiView() with your Sa’i view
+                            Text("Back")
+                                .frame(width: 100, height: 4)
+                                .padding()
+                                .background(Color("Color 1"))
+                                .cornerRadius(25)
+                                .foregroundColor(.white)
+                        }
+                        Spacer() // Push the Back button to the left
                     }
-                    Spacer() // Push the Back button to the left
+                    .padding(.top ,120)
+                    .padding()
                 }
-                .padding()
             }
         }
     }
 }
-
 
 struct EndIhram_Previews: PreviewProvider {
     static var previews: some View {
