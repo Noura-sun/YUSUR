@@ -15,9 +15,9 @@ struct Splash: View {
         Group {
             if isActive {
                 if hasSeenOnboarding {
-                    IhramView() // Existing view to display after splash
+                    IhramView() // Show IhramView if onboarding is done
                 } else {
-                    OnboardingView() // Onboarding screen
+                    OnboardingView() // Show OnboardingView if not yet done
                 }
             } else {
                 VStack(spacing: 20) {
@@ -43,10 +43,12 @@ struct Splash: View {
     }
 }
 
-// Preview for the Splash view
 struct Splash_Previews: PreviewProvider {
     static var previews: some View {
-        // Assuming you want to preview the splash screen without a context
         Splash()
     }
 }
+
+
+
+

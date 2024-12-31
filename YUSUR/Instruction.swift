@@ -8,70 +8,100 @@ import SwiftUI
 
 struct InstructionView: View {
     var body: some View {
-        ZStack {
-            // Background Image
-            Image("Onboarding 6") // Replace with your image name
-                .resizable()
-                .scaledToFill()
-                .edgesIgnoringSafeArea(.all)
-            
-            // Content with blur box
-            VStack {
-                Spacer()
+        NavigationStack { // Wrapping in NavigationStack to manage navigation
+            ZStack {
+                // Background Image
+                Image("Onboarding 6")
+                    .resizable()
+                    .scaledToFill()
+                    .edgesIgnoringSafeArea(.all)
                 
-                VStack(spacing: 20) {
-                    // Taller Blur Box
+                VStack {
+                    Spacer()
+                    
+                    // Single blurred box for all content
                     VStack(spacing: 20) {
-                        Text("Welcome to the Umrah Guide App!") // Place your instruction text here
-                            .font(.title2)
-                            .fontWeight(.bold)
-                            .foregroundColor(.black) // Replace with your custom color if needed
-                            .multilineTextAlignment(.center) // Center the text
+                        VStack(spacing: 10) {
+                            Text("Welcome to YUSUR \n your Umrah Guide App!")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                                .foregroundColor(.black)
+                                .multilineTextAlignment(.center)
+                                .minimumScaleFactor(0.8)
+                            
+                            Text("""
+                            We strive to provide you with a seamless experience to help you perform Umrah with ease. Please follow these instructions:
+                            """)
+                                .font(.subheadline)
+                                .fontWeight(.medium)
+                                .foregroundColor(.black)
+                                .multilineTextAlignment(.center)
+                                .minimumScaleFactor(0.8)
+                            
+                            VStack(alignment: .leading, spacing: 8) {
+                                Text("How to use:")
+                                    .font(.headline)
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.black)
+                                
+                                Text("""
+                                1. Ihram:
+                                   - Read the intentions and recommended supplications.
+                                2. Tawaf:
+                                   - Use the counter to track each round.
+                                   - Supplications will appear for each round.
+                                3. Sa’i:
+                                   - Track your 7 rounds between Safa and Marwah using the counter.
+                                4. Hair Trimming/Shaving:
+                                   - Follow the rules based on your gender.
+                                """)
+                                    .font(.body)
+                                    .foregroundColor(.black)
+                            }
+                            
+                            Text("Note:")
+                                .font(.headline)
+                                .fontWeight(.bold)
+                                .foregroundColor(.black)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                            
+                            Text("""
+                            * Use the counter after each round to avoid errors.
+                            * The progress bar shows your current and remaining steps.
+                            * You can return to this instructions page by clicking the info icon.
+                            """)
+                                .font(.body)
+                                .foregroundColor(.black)
+                                .multilineTextAlignment(.leading)
+                            
+                            VStack {
+                                Image("info")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 25, height: 25)
+                                    .foregroundColor(.black)
+                            }
+                        }
                         
-                        Text("We strive to provide you with a unique and seamless experience to help you perform Umrah with ease. Please read the following instructions to make the most out of the app:") // Place your instruction text here
-                            .font(.subheadline)
-                            .fontWeight(.bold)
-                            .foregroundColor(.black) // Replace with your custom color if needed
-                            .multilineTextAlignment(.center) // Center the text
-                        
-                        Text("How to use : ") // Place your instruction text here
-                            .font(.title2)
-                            .fontWeight(.bold)
-                            .foregroundColor(.black) // Replace with your custom color if needed
-                            .multilineTextAlignment(.leading) // Align the text to the left
-                            .frame(maxWidth: .infinity, alignment: .leading) // Ensure it stretches across the screen with left alignment
-                        Text("1.Ihram:\n.Read the intentions and recommended   supplications.\n2.Tawaf:\n.Use the counter to track each round .\nSupplications will appear for each round.\n3.Sa’i:\n.Track your 7 rounds between Safa and Marwah using the counter.\n4.Hair Trimming/Shaving:\n.Follow the rules based on your gender") // Place your instruction text here
-                            .font(.subheadline)
-                            .fontWeight(.bold)
-                            .foregroundColor(.black) // Replace with your custom color if needed
-                            .multilineTextAlignment(.leading) // Align the text to the left
-                        Text("Note!") // Place your instruction text here
-                            .font(.title2)
-                            .fontWeight(.bold)
-                            .foregroundColor(.black) // Replace with your custom color if needed
-                            .frame(maxWidth: .infinity, alignment: .leading) // Ensure it stretches HStack {
-                        Text("*Use the counter after each round to avoid errors.\n*The progress bar shows your current and remaining steps.\n*You can return to this instructions page by clicking on this ")
-                            .font(.subheadline)
-                            .fontWeight(.bold)
-                            .foregroundColor(.black) // Replace with your custom color if needed
-                            .multilineTextAlignment(.leading) // Align the text to the left
-                        
-                        Image("info") // Replace with your image name or system image
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 24, height: 24) // Adjust the size as needed
-                        
+                        // Start Umrah Button Inside the Same Blurred Box
+                        NavigationLink(destination: IhramView()) {
+                            Text("Start Umrah")
+                                .frame(width: 180, height: 50)
+                                .background(Color("userbb")) // Your color here
+                                .foregroundColor(.white)
+                                .cornerRadius(25)
+                                .font(.title2)
+                                .padding(.top, 1) // Adds space between the text and the button
+                        }
                     }
-                    .padding(.horizontal, 20) // Optional: add horizontal padding for spacing
-    
                     .padding()
-                    .background(CustomBlurView(style: .systemUltraThinMaterial)) // Subtle blur effect
+                    .background(CustomBlurView(style: .systemUltraThinMaterial)) // Single blur for all content
                     .cornerRadius(20)
-                    .frame(width: UIScreen.main.bounds.width * 0.9, height: 700) // Adjust the box height as needed
-                    .padding(.horizontal, 20)
+                    .frame(maxWidth: UIScreen.main.bounds.width * 0.9)
+                    
+                    Spacer()
                 }
-                
-                Spacer()
+                .padding()
             }
         }
     }
@@ -82,8 +112,7 @@ struct CustomBlurView: UIViewRepresentable {
     var style: UIBlurEffect.Style
     
     func makeUIView(context: Context) -> UIVisualEffectView {
-        let blurView = UIVisualEffectView(effect: UIBlurEffect(style: style))
-        return blurView
+        UIVisualEffectView(effect: UIBlurEffect(style: style))
     }
     
     func updateUIView(_ uiView: UIVisualEffectView, context: Context) {
@@ -96,5 +125,11 @@ struct InstructionView_Previews: PreviewProvider {
         InstructionView()
     }
 }
+
+
+
+
+
+
 
 

@@ -4,12 +4,6 @@
 //
 //  Created by shaden  on 11/06/1446 AH.
 //
-//
-//  OnBoarding.swift
-//  YUSUR
-//
-//  Created by shaden  on 11/06/1446 AH.
-//
 import SwiftUI
 
 struct OnboardingView: View {
@@ -33,14 +27,17 @@ struct OnboardingView: View {
                             .resizable()
                             .scaledToFit()
                             .padding(.leading, -70) // Move logo to the left and
+
                             .frame(width: 600, height: 600) // Adjust logo size to match the screenshot
                             .padding(.bottom,80)
+                        
+                        
                     }
                     
                     Spacer() // Push the button to the bottom
                     
                     // Start Button
-                    NavigationLink(destination: userinfoView().navigationBarBackButtonHidden(true)) {
+                    NavigationLink(destination: IhramView().navigationBarBackButtonHidden(true)) {
                         Text("Start Now")
                             .font(.headline)
                             .foregroundColor(.white)
@@ -62,4 +59,3 @@ struct OnboardingView_Previews: PreviewProvider {
         OnboardingView()
     }
 }
-
