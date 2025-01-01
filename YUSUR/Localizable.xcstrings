@@ -1,35 +1,82 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "\"It is sufficient to make the intention in your heart without verbal declaration.\")" : {
-      "extractionState" : "manual"
+    "\"It is sufficient to make the intention in your heart without verbal declaration.\"" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«يكفي أن تعقد النية في قلبك دون تصريح»."
+          }
+        }
+      }
     },
     "At the designated Miqat (entry point for Ihram), declare the intention for Umrah by saying:" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "عند الميقات المخصص (نقطة دخول الإحرام) أعلن نية العمرة بالقول:"
+          }
+        }
+      }
     },
-    "Hair Trimming" : {
-      "extractionState" : "manual"
+    "EndIhram " : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "التحلل من الاحرام "
+          }
+        }
+      }
     },
     "Ihram" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الإحرام"
+          }
+        }
+      }
     },
     "Intention (Niyyah)" : {
-      "extractionState" : "manual"
-    },
-    "Key 2" : {
-      "extractionState" : "manual"
-    },
-    "Key 3" : {
-      "extractionState" : "manual"
-    },
-    "Key 4" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "النية "
+          }
+        }
+      }
     },
     "Labbayk Allahumma Umrah\\\" (Here I am, O Allah, for Umrah)." : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لبيك الله عمرة\" (لبيك اللهم عمرة)."
+          }
+        }
+      }
     },
     "Sa’i" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "السعي"
+          }
+        }
+      }
     },
     "Start Now" : {
       "extractionState" : "manual",
@@ -43,7 +90,15 @@
       }
     },
     "Tawaf" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الطواف"
+          }
+        }
+      }
     },
     "umrah" : {
       "extractionState" : "manual",

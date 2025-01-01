@@ -6,7 +6,7 @@ struct TawafView: View {
     @State private var isCompleted: Bool = false // To check if the counter has completed
     @State private var selectedIndex: Int = 0 // Added for tracking the current dua index
     
-    let progressSteps = ["Ihram", "Tawaf", "Sa'i", "Hair Trimming"] // List of steps with new order
+    let progressSteps = ["Ihram", "Tawaf", "Sa'i", "EndIhram "] // List of steps with new order
     let duas = [
         "Our Lord, give us good in this world and good in the Hereafter, and protect us from the punishment of the Fire",
         "Glory be to Allah, all praise is due to Allah, there is no god but Allah, and Allah is the Greatest",

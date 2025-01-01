@@ -52,7 +52,7 @@ struct InstructionView: View {
                                    - Supplications will appear for each round.
                                 3. Sa’i:
                                    - Track your 7 rounds between Safa and Marwah using the counter.
-                                4. Hair Trimming/Shaving:
+                                4. EndIhram /Shaving:
                                    - Follow the rules based on your gender.
                                 """)
                                     .font(.body)

@@ -8,7 +8,7 @@ import SwiftUI
 struct EndIhram: View {
     @State private var selectedGender: String = "Men" // Default is Men
     @State private var selectedIndex = 0 // Track the current page for dots
-    let progressSteps = ["Ihram", "Tawaf", "Sa’i", "Hair Trimming"] // Non-clickable steps
+    let progressSteps = ["Ihram", "Tawaf", "Sa’i", "EndIhram "] // Non-clickable steps
     let duas = [
         "O Allah, all praise is for You Alone. You have beautified my creation and adorned me with hair. Make this (act of hair trimming) a purification and blessing for me, forgive my sins, and accept my worship.",
         "O Allah, guide me and make me steadfast in my faith, and forgive my sins, and grant me success in all my affairs.",

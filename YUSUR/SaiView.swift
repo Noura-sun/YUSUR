@@ -12,7 +12,7 @@ struct SaiView: View {
     @State private var isCompleted: Bool = false // To check if the counter has completed
     @State private var selectedIndex = 0 // Track selected dua in the TabView
     
-    let progressSteps = ["Ihram", "Tawaf", "Sa'i", "Hair Trimming"] // List of steps with new order
+    let progressSteps = ["Ihram", "Tawaf", "Sa'i", "EndIhram "] // List of steps with new order
     let duas = [
         "God is great, God is great, God is great, there is no god but God alone with no partner, to Him belongs dominion and to Him is praise, and He is capable of all things. There is no god but God alone. He fulfilled His promise, gave victory to His servant, and defeated the parties alone  ",
         "Oh God, You are A generous pardon. You love forgiveness, so forgive me.    ",

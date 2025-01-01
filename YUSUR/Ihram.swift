@@ -3,7 +3,7 @@ import SwiftUI
 
 struct IhramView: View {
     @State private var selectedGender: String = "Men" // Default is Men
-    let progressSteps = ["Ihram", "Tawaf", "Sa’i", "Hair Trimming"] // Non-clickable steps
+    let progressSteps = ["Ihram", "Tawaf", "Sa’i", "EndIhram "] // Non-clickable steps
     
     var body: some View {
         NavigationStack {
