@@ -7,8 +7,8 @@ import SwiftUI
 
 struct EndIhram: View {
     @State private var selectedGender: String = "Men" // Default is Men
-    @State private var selectedIndex = 0 // Track the current page for dots
-    let progressSteps = ["Ihram", "Tawaf", "Sa’i", "EndIhram "] // Non-clickable steps
+    @State private var selectedIndex = 0
+    let progressSteps = ["Ihram", "Tawaf", "Sa’i", "EndIhram "]
     let duas = [
         "O Allah, all praise is for You Alone. You have beautified my creation and adorned me with hair. Make this (act of hair trimming) a purification and blessing for me, forgive my sins, and accept my worship.",
         "O Allah, guide me and make me steadfast in my faith, and forgive my sins, and grant me success in all my affairs.",
@@ -46,7 +46,24 @@ struct EndIhram: View {
                 
                 // Scrollable Content
                 ScrollView {
-                    VStack(spacing: 100) {
+                    Spacer() .frame(height: 15)
+                    VStack(alignment: .leading, spacing: 1) {
+                        Text("EndIhram")
+                            .font(.custom("Amiri-Regular", size: 20))
+                            .padding(.bottom, 12) // Add space below "Tawaf"
+                            .padding(.top, 12) // Add space below "Tawaf"
+                            .padding(.leading, 14)
+                        Text("""
+                        Now the final step of Umrah: Ending Ihram 
+                        """)
+                        .padding(.leading, 14)
+                        .font(.custom("Amiri-Regular", size: 16)) // Optional: Match font size
+                            .lineSpacing(2)
+                        Spacer().frame(height: 10)
+                        .font(.body)
+                        .lineSpacing(2)
+                        .padding(.top,50)
+
                         // Gender Picker and Rules Box
                         VStack(alignment: .leading, spacing: 20) {
                             HStack {
@@ -72,7 +89,7 @@ struct EndIhram: View {
                         .cornerRadius(8)
                         .padding()
                         
-                        // Swipeable Dua Section
+                     // dua
                         VStack {
                             TabView(selection: $selectedIndex) {
                                 ForEach(0..<duas.count, id: \.self) { index in
@@ -86,7 +103,7 @@ struct EndIhram: View {
                             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                             .frame(height: 200)
                             
-                            // Custom Navigation Dots
+                            //  Dots
                             HStack(spacing: 6) {
                                 ForEach(0..<duas.count, id: \.self) { index in
                                     Circle()
@@ -103,6 +120,7 @@ struct EndIhram: View {
                     }
                     
                     // Bottom Button with Navigation Link
+                    Spacer() .frame(height: 130)
                     HStack {
                         NavigationLink(destination:SaiView().navigationBarBackButtonHidden(true)) { // Replace SaiView() with your Sa’i view
                             Text("Back")
@@ -112,16 +130,31 @@ struct EndIhram: View {
                                 .cornerRadius(25)
                                 .foregroundColor(.white)
                         }
-                        Spacer() // Push the Back button to the left
+                        Spacer()
+                            .frame(width: 102);                        NavigationLink(destination: UmrahBlessingView()) { // Navigate to Sai on Continue
+                            Text("Continue")
+                                .frame(width: 100, height: 4)
+                                .padding()
+                                .background(Color("Color 1"))
+                                .foregroundColor(.white)
+                                .cornerRadius(100)
+                                .font(.custom("Amiri-Bold", size: 18))
+                            
+                        }
                     }
-                    .padding(.top ,120)
-                    .padding()
+                    
+                    Spacer() // Push the Back button to the left
+                    
+                        .padding(.top ,120)
+                        .padding()
                 }
+                .navigationBarBackButtonHidden(true) // إخفاء زر الرجوع الافتراضي
+
             }
         }
     }
+    
 }
-
 struct EndIhram_Previews: PreviewProvider {
     static var previews: some View {
         EndIhram()

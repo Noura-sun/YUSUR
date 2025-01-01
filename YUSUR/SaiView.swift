@@ -66,10 +66,12 @@ struct SaiView: View {
                          Spacer().frame(height: 30)
                         .font(.body)
                         .lineSpacing(2)
+
                     }
                     .padding(.horizontal, 18)
                     .padding(.top, 18)
-                    
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
                     // Lap Counter
                     VStack(spacing: 14) {
                         ZStack {
