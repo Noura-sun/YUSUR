@@ -7,8 +7,8 @@ import SwiftUI
 
 struct EndIhram: View {
     @State private var selectedGender: String = "Men" // Default is Men
-    @State private var selectedIndex = 0 // Track the current page for dots
-    let progressSteps = ["Ihram", "Tawaf", "Sa’i", "EndIhram "] // Non-clickable steps
+    @State private var selectedIndex = 0
+    let progressSteps = ["Ihram", "Tawaf", "Sa’i", "EndIhram "]
     let duas = [
         "O Allah, all praise is for You Alone. You have beautified my creation and adorned me with hair. Make this (act of hair trimming) a purification and blessing for me, forgive my sins, and accept my worship.",
         "O Allah, guide me and make me steadfast in my faith, and forgive my sins, and grant me success in all my affairs.",
@@ -18,8 +18,7 @@ struct EndIhram: View {
     
     var body: some View {
         NavigationStack {
-            VStack { // Use VStack to structure all sections
-                // Title and Progress Bar
+            VStack {
                 
                 // Progress Bar
                 HStack(spacing: 0) {
@@ -43,11 +42,9 @@ struct EndIhram: View {
                 .padding(.horizontal)
                 .padding(.top, 10)
                 
-                
-                // Scrollable Content
                 ScrollView {
                     VStack(spacing: 100) {
-                        // Gender Picker and Rules Box
+                        // Gender Picker
                         VStack(alignment: .leading, spacing: 20) {
                             HStack {
                                 Text("**Rules of Hair Trimming:**")
@@ -72,7 +69,7 @@ struct EndIhram: View {
                         .cornerRadius(8)
                         .padding()
                         
-                        // Swipeable Dua Section
+                     // dua
                         VStack {
                             TabView(selection: $selectedIndex) {
                                 ForEach(0..<duas.count, id: \.self) { index in
@@ -86,7 +83,7 @@ struct EndIhram: View {
                             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                             .frame(height: 200)
                             
-                            // Custom Navigation Dots
+                            //  Dots
                             HStack(spacing: 6) {
                                 ForEach(0..<duas.count, id: \.self) { index in
                                     Circle()
@@ -102,9 +99,9 @@ struct EndIhram: View {
                         }
                     }
                     
-                    // Bottom Button with Navigation Link
+              
                     HStack {
-                        NavigationLink(destination:SaiView().navigationBarBackButtonHidden(true)) { // Replace SaiView() with your Sa’i view
+                        NavigationLink(destination: SaiView().navigationBarBackButtonHidden(true)) {
                             Text("Back")
                                 .frame(width: 100, height: 4)
                                 .padding()
@@ -112,12 +109,23 @@ struct EndIhram: View {
                                 .cornerRadius(25)
                                 .foregroundColor(.white)
                         }
-                        Spacer() // Push the Back button to the left
+                        Spacer()
+                        
+                  
+                        NavigationLink(destination: UmrahBlessingView()) {
+                            Text("Continue")
+                                .frame(width: 100, height: 4)
+                                .padding()
+                                .background(Color("Color 1"))
+                                .cornerRadius(25)
+                                .foregroundColor(.white)
+                        }
                     }
-                    .padding(.top ,120)
+                    .padding(.top, 120)
                     .padding()
                 }
             }
+            .navigationBarBackButtonHidden(true) // Hide the back button
         }
     }
 }
@@ -127,3 +135,5 @@ struct EndIhram_Previews: PreviewProvider {
         EndIhram()
     }
 }
+
+
