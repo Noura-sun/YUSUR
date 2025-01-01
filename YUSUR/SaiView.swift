@@ -62,15 +62,16 @@ struct SaiView: View {
                         Remember to ask Allah for forgiveness and blessings during each lap.
                         """)
                         .font(.custom("Amiri-Regular", size: 16)) // Optional: Match font size
-                            .lineSpacing(2)
-                        Spacer().frame(height: 30)
+                        .lineSpacing(2)
+                         Spacer().frame(height: 30)
                         .font(.body)
                         .lineSpacing(2)
+
                     }
-                    .padding(.horizontal, 18) // Adds extra spacing on the sides
-                    .padding(.top, 18) // Raises the text a bit above
-                    
-                    
+                    .padding(.horizontal, 18)
+                    .padding(.top, 18)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
                     // Lap Counter
                     VStack(spacing: 14) {
                         ZStack {
