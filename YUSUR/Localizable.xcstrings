@@ -1,0 +1,61 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "\"It is sufficient to make the intention in your heart without verbal declaration.\")" : {
+      "extractionState" : "manual"
+    },
+    "At the designated Miqat (entry point for Ihram), declare the intention for Umrah by saying:" : {
+      "extractionState" : "manual"
+    },
+    "Hair Trimming" : {
+      "extractionState" : "manual"
+    },
+    "Ihram" : {
+      "extractionState" : "manual"
+    },
+    "Intention (Niyyah)" : {
+      "extractionState" : "manual"
+    },
+    "Key 2" : {
+      "extractionState" : "manual"
+    },
+    "Key 3" : {
+      "extractionState" : "manual"
+    },
+    "Key 4" : {
+      "extractionState" : "manual"
+    },
+    "Labbayk Allahumma Umrah\\\" (Here I am, O Allah, for Umrah)." : {
+      "extractionState" : "manual"
+    },
+    "Sa’i" : {
+      "extractionState" : "manual"
+    },
+    "Start Now" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ابدأ الان "
+          }
+        }
+      }
+    },
+    "Tawaf" : {
+      "extractionState" : "manual"
+    },
+    "umrah" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "عمرة"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
