@@ -26,18 +26,15 @@ struct OnboardingView: View {
                         Image("Aldenaire") // Replace with your actual logo name
                             .resizable()
                             .scaledToFit()
-                            .padding(.leading, -70) // Move logo to the left and
-
+                            .padding(.leading, -70) // Move logo to the left
                             .frame(width: 600, height: 600) // Adjust logo size to match the screenshot
-                            .padding(.bottom,80)
-                        
-                        
+                            .padding(.bottom, 80)
                     }
                     
                     Spacer() // Push the button to the bottom
                     
                     // Start Button
-                    NavigationLink(destination: IhramView().navigationBarBackButtonHidden(true)) {
+                    NavigationLink(destination: InstructionView()) {
                         Text("Start Now")
                             .font(.headline)
                             .foregroundColor(.white)
@@ -59,3 +56,5 @@ struct OnboardingView_Previews: PreviewProvider {
         OnboardingView()
     }
 }
+
+

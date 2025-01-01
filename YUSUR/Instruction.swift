@@ -8,7 +8,7 @@ import SwiftUI
 
 struct InstructionView: View {
     var body: some View {
-        NavigationStack { // Wrapping in NavigationStack to manage navigation
+        NavigationStack {
             ZStack {
                 // Background Image
                 Image("Onboarding 6")
@@ -103,6 +103,8 @@ struct InstructionView: View {
                 }
                 .padding()
             }
+            .navigationBarBackButtonHidden(true) // Hides the back button
+            .navigationBarHidden(true) // Completely hides the navigation bar if needed
         }
     }
 }
@@ -125,6 +127,7 @@ struct InstructionView_Previews: PreviewProvider {
         InstructionView()
     }
 }
+
 
 
 
