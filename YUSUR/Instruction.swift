@@ -87,7 +87,7 @@ struct InstructionView: View {
                         NavigationLink(destination: IhramView()) {
                             Text("Start Umrah")
                                 .frame(width: 180, height: 50)
-                                .background(Color("userbb")) // Your color here
+                                .background(Color("Color 1")) // Your color here
                                 .foregroundColor(.white)
                                 .cornerRadius(25)
                                 .font(.title2)

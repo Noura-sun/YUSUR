@@ -47,6 +47,7 @@ struct OnboardingView: View {
                     .padding(.bottom, 100) // Add space from the bottom edge
                 }
             }
+            .navigationBarBackButtonHidden(true) // Hide the back button
         }
     }
 }
@@ -56,5 +57,6 @@ struct OnboardingView_Previews: PreviewProvider {
         OnboardingView()
     }
 }
+
 
 

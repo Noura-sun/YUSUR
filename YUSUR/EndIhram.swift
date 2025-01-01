@@ -7,8 +7,8 @@ import SwiftUI
 
 struct EndIhram: View {
     @State private var selectedGender: String = "Men" // Default is Men
-    @State private var selectedIndex = 0 // Track the current page for dots
-    let progressSteps = ["Ihram", "Tawaf", "Sa’i", "EndIhram "] // Non-clickable steps
+    @State private var selectedIndex = 0
+    let progressSteps = ["Ihram", "Tawaf", "Sa’i", "EndIhram "]
     let duas = [
         "O Allah, all praise is for You Alone. You have beautified my creation and adorned me with hair. Make this (act of hair trimming) a purification and blessing for me, forgive my sins, and accept my worship.",
         "O Allah, guide me and make me steadfast in my faith, and forgive my sins, and grant me success in all my affairs.",
@@ -89,7 +89,7 @@ struct EndIhram: View {
                         .cornerRadius(8)
                         .padding()
                         
-                        // Swipeable Dua Section
+                     // dua
                         VStack {
                             TabView(selection: $selectedIndex) {
                                 ForEach(0..<duas.count, id: \.self) { index in
@@ -103,7 +103,7 @@ struct EndIhram: View {
                             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                             .frame(height: 200)
                             
-                            // Custom Navigation Dots
+                            //  Dots
                             HStack(spacing: 6) {
                                 ForEach(0..<duas.count, id: \.self) { index in
                                     Circle()
