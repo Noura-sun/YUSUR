@@ -3,7 +3,15 @@ import SwiftUI
 
 struct IhramView: View {
     @State private var selectedGender: String = "Men" // Default is Men
-    let progressSteps = ["Ihram", "Tawaf", "Sa’i", "EndIhram "] // Non-clickable steps
+    @State private var selectedIndex: Int = 0 // For tracking the current dua index
+    let progressSteps = ["Ihram", "Tawaf", "Sa’i", "EndIhram"] // Non-clickable steps
+    
+    let duas = [
+        "Our Lord, give us good in this world and good in the Hereafter, and protect us from the punishment of the Fire",
+        "Glory be to Allah, all praise is due to Allah, and Allah is the Greatest",
+        "O Allah, You are Pardoning and Generous, and You love to pardon, so pardon me",
+        "O Allah, I ask You for pardon and well-being in this world and the Hereafter"
+    ]
     
     var body: some View {
         NavigationStack {
@@ -36,20 +44,28 @@ struct IhramView: View {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 12) {
                         // Section: Intention (Niyyah)
-                        Text("**Intention (Niyyah):**")
-                            .font(.headline)
+                        Text("Intention (Niyyah)")
+                            .font(.custom("Amiri-Regular", size: 20))
+                            .padding(.bottom, 12) // Add space below "Tawaf"
+                            .padding(.top, 12) // Add space below "Tawaf"
                         Text("""
-                            At the designated Miqat (entry point for Ihram), declare the intention for Umrah by saying:
-                            
-                            \"Labbayk Allahumma Umrah\" (Here I am, O Allah, for Umrah).
-                            """)
-                        Text("It is sufficient to make the intention in your heart without verbal declaration.")
+                        At the designated Miqat (entry point for Ihram), declare the intention for Umrah by saying:
+
+                        \"Labbayk Allahumma Umrah\" (Here I am, O Allah, for Umrah).
+
+                        It is sufficient to make the intention in your heart without verbal declaration.
+                        """)
+                        .font(.custom("Amiri-Regular", size: 16)) // Apply the same font style
+
+                        
+                        // Add some space before the box
+                        Spacer().frame(height: 20)
                         
                         // Gender Picker and Rules Box
                         VStack(alignment: .leading, spacing: 8) {
                             // Title and Picker in a Horizontal Stack
                             HStack {
-                                Text("**Rules of Ihram**")
+                                Text("Rules of Ihram")
                                     .font(.headline)
                                 Spacer()
                                 Picker(selection: $selectedGender, label: Text("")) {
@@ -63,23 +79,54 @@ struct IhramView: View {
                             // Rules Text
                             Text(selectedGender == "Men" ?
                                  "Wear two white, unstitched garments (Izar and Rida)." :
-                                    "Women should wear modest clothing that covers the body but does not include the  hands.")
+                                    "Women should wear modest clothing that covers the body but does not include the face and hands.")
                             .font(.body)
                             .padding(.top, 4)
                         }
                         .padding()
                         .background(Color.brown.opacity(0.2)) // Box background color
                         .cornerRadius(8)
-                        
-                        // Arabic Prayer
-                        Spacer()
-                        Text("Oh God, I ask you for Paradise, and whatever words and deeds bring me closer to it, and I seek refuge in You from Hell, and whatever words and deeds bring me closer to it.")
-                            .font(.caption)
-                            .multilineTextAlignment(.center)
                     }
                     .padding()
                     
-                    
+                    // Dua Section
+                    VStack {
+                        TabView(selection: $selectedIndex) {
+                            ForEach(0..<duas.count, id: \.self) { index in
+                                VStack {
+                                    Text(duas[index])
+                                        .font(.custom("Amiri-Regular", size: 17)) // Adjust font size and style here
+                                        .multilineTextAlignment(.center)
+                                        .padding(.top,-40)
+
+                                }
+                                .tag(index)
+                                .padding()
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                .background(Color.white) // Optional: Add background color
+                            }
+                        }
+                        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never)) // Custom dots
+                        .frame(height: 180) // Adjusted height for tighter layout
+                        
+                        // Custom Dots
+                        HStack(spacing: 8) {
+                            ForEach(0..<duas.count, id: \.self) { index in
+                                Circle()
+                                    .fill(selectedIndex == index ? Color.gray : Color.secondary.opacity(0.4))
+                                    .frame(width: 6, height: 10)
+                                    .onTapGesture {
+                                        withAnimation {
+                                            selectedIndex = index
+                                        }
+                                    }
+                            }
+                        }
+                        .padding(.top, -60) // Adjust spacing between duas and dots
+                        .padding(.bottom)
+                    }
+                    .padding()
+                    Spacer()
                     // Bottom Navigation Button
                     HStack {
                         Spacer()
@@ -92,14 +139,15 @@ struct IhramView: View {
                                 .cornerRadius(100)
                         }
                     }
-                    .padding(.top,120)
-                    .padding()
+                    .padding(.horizontal,20)
+                    .padding(.top,-30)
                 }
                 .navigationBarBackButtonHidden(true) // Hide the back button
             }
         }
     }
 }
+
 // Example of the next page
 struct Ihram: View {
     var body: some View {
@@ -120,4 +168,3 @@ struct Ihram_Previews: PreviewProvider {
         IhramView()
     }
 }
-

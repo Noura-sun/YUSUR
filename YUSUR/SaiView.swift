@@ -53,23 +53,25 @@ struct SaiView: View {
                 // Sai Description
                 ScrollView {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("Begin Sa'i from Safa towards Marwa: ")
-                            .bold()
+                        Text("Begin Sa'i from Safa towards Marwa ")
+                            .font(.custom("Amiri-Regular", size: 20))
+                            .padding(.bottom, 12) // Add space below "Tawaf"
+                            .padding(.top, 12) // Add space below "Tawaf"
                         Text("""
                         Walk back and forth between Safa and Marwa seven times while engaging in prayers and supplications.
                         Remember to ask Allah for forgiveness and blessings during each lap.
                         """)
                         .font(.custom("Amiri-Regular", size: 16)) // Optional: Match font size
-                            .lineSpacing(2)
-                        Spacer().frame(height: 30)
+                        .lineSpacing(2)
+                         Spacer().frame(height: 30)
                         .font(.body)
                         .lineSpacing(2)
                     }
-                    .padding(.horizontal, 18) // Adds extra spacing on the sides
-                    .padding(.top, 18) // Raises the text a bit above
+                    .padding(.horizontal, 18)
+                    .padding(.top, 18)
                     
                     // Lap Counter
-                    VStack {
+                    VStack(spacing: 14) {
                         ZStack {
                             GeometryReader { geometry in
                                 // Circle background
@@ -85,21 +87,21 @@ struct SaiView: View {
                                         currentRound == 7 ? Color("Color 9") :
                                         Color.clear
                                     )
-                                    .frame(width: geometry.size.width, height: geometry.size.height)
+                                    .frame(width: 170, height: 170) // Increased size of the circle
                                 
                                 // Number in the center
                                 Text("\(currentRound)")
                                     .font(.system(size: 48))
                                     .fontWeight(.bold)
                                     .foregroundColor(.white)
-                                    .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
+                                    .position(x: geometry.size.width / 2, y: geometry.size.height / 2+5)
                             }
-                            .frame(width: 150, height: 150) // Fixed size for the circle
+                            .frame(width: 170, height: 160) // Fixed size for the circle
                         }
                         
                         // Display message based on the current round count
                         Text(currentRound == 0 ? "Start Sai " : (currentRound == 7 ? "Sai Completed!" : ""))
-                            .font(.custom("Amiri-Regular", size: 18))
+                            .font(.custom("Amiri-Regular", size: 16))
                             .foregroundColor(.black)
                             .padding(.top, 10)
                     }
@@ -112,12 +114,14 @@ struct SaiView: View {
                                 isCompleted = false
                             }
                         }) {
-                            Text("-")
-                                .font(.system(size: 36))
+                            Image(systemName: "minus") // SF Symbol for minus
+                                .font(.system(size: 24, weight: .bold)) // Icon size and weight
                                 .foregroundColor(Color("Color 3"))
-                                .frame(width: 20, height: 20)
+                                .frame(width: 50, height: 20)
                                 .cornerRadius(25) // Make it a round button
                         }
+                        .padding(.leading, -9) // Add space to the left of the minus button
+
                         
                         Button(action: {
                             if currentRound < 7 {
@@ -127,12 +131,15 @@ struct SaiView: View {
                                 }
                             }
                         }) {
-                            Text("+")
-                                .font(.system(size: 36))
-                                .foregroundColor(Color("Color 1"))
-                                .frame(width: 20, height: 20)
+                            Image(systemName: "plus") // SF Symbol for plus
+                            .font(.system(size: 24, weight: .bold)) // Icon size and weight
+                            .foregroundColor(Color("Color 1"))
+                            .fontWeight(.bold) // Make the minus symbol bold
+
+                                .frame(width: 50, height: 20)
                                 .cornerRadius(25) // Make it a round button
                         }
+                        .padding(.trailing, -9) // Add space to the right of the plus button
                     }
                     .padding(10)
                     .background(Color.gray.opacity(0.2))
@@ -141,14 +148,10 @@ struct SaiView: View {
                         TabView(selection: $selectedIndex) {
                             ForEach(0..<duas.count, id: \.self) { index in
                                 VStack {
-                                    Spacer()
-                                    
                                     Text(duas[index])
-                                        .font(.title3)
+                                        .font(.custom("Amiri-Regular", size: 17)) // Adjust font size and style here
+                                        .padding(.top,-25)
                                         .multilineTextAlignment(.center)
-                                        .padding()
-                                    
-                                    Spacer()
                                 }
                                 .tag(index)
                                 .padding()
@@ -157,13 +160,13 @@ struct SaiView: View {
                             }
                         }
                         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-                        .frame(height: 200)
+                        .frame(height: 180)
                         
                         HStack(spacing: 8) {
                             ForEach(0..<duas.count, id: \.self) { index in
                                 Circle()
                                     .fill(selectedIndex == index ? Color.gray : Color.secondary.opacity(0.4))
-                                    .frame(width: 10, height: 10)
+                                    .frame(width: 6, height: 10)
                                     .onTapGesture {
                                         withAnimation {
                                             selectedIndex = index
@@ -171,11 +174,14 @@ struct SaiView: View {
                                     }
                             }
                         }
+                        .padding(.top, -20)
                         .padding(.bottom)
                     }
-                    .padding()
+                    .padding(.bottom,8)
                     
                     Spacer()
+                     
+
                    
                 // Bottom Buttons
                 HStack {
@@ -191,7 +197,7 @@ struct SaiView: View {
                     }
                     Spacer()
                     
-                    NavigationLink(destination: EndIhram().navigationBarBackButtonHidden(true)) { // Navigate to HairTrimmingView on Continue
+                    NavigationLink(destination:EndIhram()) { // Navigate to HairTrimmingView on Continue
                         Text("Continue")
                             .frame(width: 100, height: 4)
                             .padding()
@@ -203,8 +209,7 @@ struct SaiView: View {
                     }
                     .disabled(!isCompleted)
                 }
-                .padding(.horizontal)
-                .padding(.bottom, 16)
+                .padding(.horizontal,20)
             }
             .navigationBarBackButtonHidden(true)
         }
@@ -266,6 +271,3 @@ struct SaiView_Previews: PreviewProvider {
         SaiView()
     }
 }
-
-
-
