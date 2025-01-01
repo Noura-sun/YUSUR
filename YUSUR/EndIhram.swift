@@ -131,7 +131,7 @@ struct EndIhram: View {
                                 .foregroundColor(.white)
                         }
                         Spacer()
-                            .frame(width: 102);                        NavigationLink(destination: SaiView()) { // Navigate to Sai on Continue
+                            .frame(width: 102);                        NavigationLink(destination: UmrahBlessingView()) { // Navigate to Sai on Continue
                             Text("Continue")
                                 .frame(width: 100, height: 4)
                                 .padding()
@@ -148,6 +148,8 @@ struct EndIhram: View {
                         .padding(.top ,120)
                         .padding()
                 }
+                .navigationBarBackButtonHidden(true) // إخفاء زر الرجوع الافتراضي
+
             }
         }
     }
