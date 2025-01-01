@@ -1,0 +1,331 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    " * Use the counter after each round to avoid errors.\n                            * The progress bar shows your current and remaining steps.\n                            * You can return to this instructions page by clicking the info icon." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "* استخدم العداد بعد كل جولة لتجنب الأخطاء.\n                            * يعرض شريط التقدم خطواتك الحالية والمتبقية.\n                            * يمكنك العودة إلى صفحة التعليمات هذه بالنقر على أيقونة المعلومات."
+          }
+        }
+      }
+    },
+    " 1. Ihram:\n                                   - Read the intentions and recommended supplications.\n                                2. Tawaf:\n                                   - Use the counter to track each round.\n                                   - Supplications will appear for each round.\n                                3. Sa’i:\n                                   - Track your 7 rounds between Safa and Marwah using the counter.\n                                4. EndIhram /Shaving:\n                                   - Follow the rules based on your gender." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1. الإحرام:\n                                   - النية و قراءة الأدعية المستحبة.\n                                2. الطواف :\n                                   - استخدم العداد لتتبع كل جولة.\n                                   - ستظهر أدعية لكل جولة.\n                                3. السعي:\n                                   - تتبع جولاتك السبعة بين الصفا والمروة باستخدام العداد.\n                                4. التحلل من الإحرام / الحلاقة :\n                                   - اتبع القواعد بناءً على جنسك."
+          }
+        }
+      }
+    },
+    "**Rules of Ihram:**" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**أحكام الإحرام:**"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Rules of Ihram:**"
+          }
+        }
+      }
+    },
+    "At the designated Miqat (entry point for Ihram), declare the intention for Umrah by saying:\n                            \n                            \\\"Labbayk Allahumma Umrah\\\" (Here I am, O Allah, for Umrah)." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "عند الميقات المخصص (نقطة دخول الإحرام) أعلن نية العمرة بالقول:\n                            \n                            \"لبيك الله عمرة\" (لبيك اللهم عمرة)."
+          }
+        }
+      }
+    },
+    "Back" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "رجوع"
+          }
+        }
+      }
+    },
+    "Begin Tawaf at the Black Stone.\\n\n                        Say \"Bismillah, Allahu Akbar\".\\n\n                        If you can touch the Black Stone, do so. If not, gesture towards it while continuing Tawaf. Continue with prayers and supplications." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الطواف :  ابدء الطواف بالحجر الأسود\nقل \"بسم الله، الله أكبر\" إذا تمكنت من لمس الحجر الأسود، فافعل، وإذا لم يكن الأمر كذلك، فما عليك سوى الإشارة إليه أثناء الطواف، ومواصلة الصلاة والدعاء.."
+          }
+        }
+      }
+    },
+    "Continue" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "استمرار"
+          }
+        }
+      }
+    },
+    "EndIhram" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "التحلل من الاحرام "
+          }
+        }
+      }
+    },
+    "Glory be to Allah, all praise is due to Allah, there is no god but Allah, and Allah is the Greatest" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "سُبْحَانَ اللَّهِ، وَالْحَمْدُ لِلَّهِ، وَلَا إِلٰهَ إِلَّا اللَّهُ، وَاللَّهُ أَكْبَرُ"
+          }
+        }
+      }
+    },
+    "How to use:" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "كيفية الاستخدام:"
+          }
+        }
+      }
+    },
+    "Ihram" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الاحرام "
+          }
+        }
+      }
+    },
+    "Intention (Niyyah):" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "النية"
+          }
+        }
+      }
+    },
+    "It is sufficient to make the intention in your heart without verbal declaration." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ويكفي أن تعقد النية في قلبك دون التصريح."
+          }
+        }
+      }
+    },
+    "Men" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "رجل"
+          }
+        }
+      }
+    },
+    "Note:" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ملاحظة: "
+          }
+        }
+      }
+    },
+    "O Allah, I ask You for pardon and well-being in this world and the Hereafter" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اللهم إني أسألك العَفْوَ والعَافِيَةَ في الدنيا والآخرة."
+          }
+        }
+      }
+    },
+    "O Allah, You are Pardoning and Generous, and You love to pardon, so pardon me " : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اللهم إِنَّكَ عَفُوٌّ كَرِيمٌ، تُحِبُّ العَفْوَ فَاعْفُ عَنِّي."
+          }
+        }
+      }
+    },
+    "Oh God, I ask you for Paradise, and whatever words and deeds bring me closer to it, and I seek refuge in You from Hell, and whatever words and deeds bring me closer to it." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اللَّهُمَّ إِنِّي أَسْأَلُكَ الْجَنَّةَ، وَمَا قَرَّبَ إِلَيْهَا مِنْ قَوْلٍ وَعَمَلٍ، وَأَعُوذُ بِكَ مِنَ النَّارِ، وَمَا قَرَّبَ إِلَيْهَا مِنْ قَوْلٍ وَعَمَلٍ."
+          }
+        }
+      }
+    },
+    "Our Lord, give us good in this world and good in the Hereafter, and protect us from the punishment of the Fire" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اللهم آتنا في الدنيا حسنةً وفي الآخرة حسنةً وقنا عذاب النار"
+          }
+        }
+      }
+    },
+    "Sa’i" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "السعي"
+          }
+        }
+      }
+    },
+    "Start Now" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ابدأ الآن"
+          }
+        }
+      }
+    },
+    "Start Tawaf" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ابدأ الطواف"
+          }
+        }
+      }
+    },
+    "Start Umrah" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بدء العمرة"
+          }
+        }
+      }
+    },
+    "Tawaf" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الطواف"
+          }
+        }
+      }
+    },
+    "We strive to provide you with a seamless experience to help you perform Umrah with ease. Please follow these instructions:" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "نحن نسعى جاهدين لنقدم لك تجربة سلسة تساعدك على أداء العمرة بسهولة. يرجى اتباع هذه التعليمات:"
+          }
+        }
+      }
+    },
+    "Wear two white, unstitched garments (Izar and Rida)." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- ارتداء ثوبين أبيضين غير مخيطين (إزار و رداء)."
+          }
+        }
+      }
+    },
+    "Welcome to YUSUR \\n your Umrah Guide App!" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مرحبًا بك في تطبيق دليل العمرة  “يُسْر”"
+          }
+        }
+      }
+    },
+    "Women" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "امرأة"
+          }
+        }
+      }
+    },
+    "Women should wear modest clothing that covers the body but does not include the  hands." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "وينبغي للمرأة أن ترتدي ملابس محتشمة تغطي الجسم ولا يشمل اليدين."
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

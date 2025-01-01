@@ -49,7 +49,7 @@ struct IhramView: View {
                         VStack(alignment: .leading, spacing: 8) {
                             // Title and Picker in a Horizontal Stack
                             HStack {
-                                Text("**Rules of Ihram:**")
+                                Text("**Rules of Ihram**")
                                     .font(.headline)
                                 Spacer()
                                 Picker(selection: $selectedGender, label: Text("")) {
@@ -63,7 +63,7 @@ struct IhramView: View {
                             // Rules Text
                             Text(selectedGender == "Men" ?
                                  "Wear two white, unstitched garments (Izar and Rida)." :
-                                    "Women should wear modest clothing that covers the body but does not include the face and hands.")
+                                    "Women should wear modest clothing that covers the body but does not include the  hands.")
                             .font(.body)
                             .padding(.top, 4)
                         }
@@ -72,12 +72,7 @@ struct IhramView: View {
                         .cornerRadius(8)
                         
                         // Arabic Prayer
-                        Text("""
-                        اللَّهُمَّ إِنِّي أَسْأَلُكَ الجَنَّةَ، وَمَا قَرَّبَ إِلَيْهَا مِنْ قَوْلٍ وَعَمَلٍ، وَأَعُوذُ بِكَ مِنَ النَّارِ، وَمَا قَرَّبَ إِلَيْهَا مِنْ قَوْلٍ وَعَمَلٍ.
-                        """)
-                        .font(.body)
-                        .multilineTextAlignment(.center)
-                        
+                        Spacer()
                         Text("Oh God, I ask you for Paradise, and whatever words and deeds bring me closer to it, and I seek refuge in You from Hell, and whatever words and deeds bring me closer to it.")
                             .font(.caption)
                             .multilineTextAlignment(.center)
