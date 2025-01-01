@@ -59,12 +59,14 @@ struct SaiView: View {
                         Walk back and forth between Safa and Marwa seven times while engaging in prayers and supplications.
                         Remember to ask Allah for forgiveness and blessings during each lap.
                         """)
+                        .font(.custom("Amiri-Regular", size: 16)) // Optional: Match font size
+                            .lineSpacing(2)
                         Spacer().frame(height: 30)
                         .font(.body)
                         .lineSpacing(2)
                     }
-                    .padding(.horizontal, 18)
-                    .padding(.top, 18)
+                    .padding(.horizontal, 18) // Adds extra spacing on the sides
+                    .padding(.top, 18) // Raises the text a bit above
                     
                     // Lap Counter
                     VStack {
@@ -73,7 +75,7 @@ struct SaiView: View {
                                 // Circle background
                                 Circle()
                                     .fill(
-                                        currentRound == 0 ? Color("Color  10") :
+                                        currentRound == 0 ? Color("Color 10") :
                                         currentRound == 1 ? Color("Color 3") :
                                         currentRound == 2 ? Color("Color 4") :
                                         currentRound == 3 ? Color("Color 5") :
