@@ -5,7 +5,7 @@ struct IhramView: View {
     @State private var selectedGender: String = "Men" // Default is Men
     @State private var selectedIndex: Int = 0 // For tracking the current dua index
 
-    let progressSteps = ["Ihram", "Tawaf", "Sa’i", "EndIhram"] // Non-clickable steps
+    let progressSteps = ["Ihram", "Tawaf", "Sa’i", "End Ihram"] // Non-clickable steps
     let duas = [
         "Our Lord, give us good in this world and good in the Hereafter, and protect us from the punishment of the Fire",
         "Glory be to Allah, all praise is due to Allah, and Allah is the Greatest",

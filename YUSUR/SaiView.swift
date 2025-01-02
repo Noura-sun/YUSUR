@@ -11,8 +11,10 @@ struct SaiView: View {
     @State private var currentRound: Int = 0 // Current number of rounds
     @State private var isCompleted: Bool = false // To check if the counter has completed
     @State private var selectedIndex = 0 // Track selected dua in the TabView
+    @State private var showHelpModal: Bool = false // State to show or hide the help modal
+
     
-    let progressSteps = ["Ihram", "Tawaf", "Sa'i", "EndIhram "] // List of steps with new order
+    let progressSteps = ["Ihram", "Tawaf", "Sa'i", "End Ihram"] // List of steps with new order
     let duas = [
         "God is great, God is great, God is great, there is no god but God alone with no partner, to Him belongs dominion and to Him is praise, and He is capable of all things. There is no god but God alone. He fulfilled His promise, gave victory to His servant, and defeated the parties alone  ",
         "Oh God, You are A generous pardon. You love forgiveness, so forgive me.    ",
@@ -23,6 +25,19 @@ struct SaiView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
+                // Add the question mark button at the top
+                    HStack {
+                        Button(action: {
+                        showHelpModal = true // Show the help modal
+                                        }) {
+                        Image(systemName: "questionmark.circle")
+                                                .font(.title2)
+                                                .foregroundColor(.gray)
+                                        }
+                                        .padding(.leading)
+                                        Spacer()
+                                    }
+                                    .padding(.top, 20)
                 HStack(spacing: 0) { // Set spacing to 0 for seamless connections
                     ForEach(progressSteps.indices, id: \.self) { index in
                         HStack(spacing: 0) { // Adjust spacing within each step and line group
